@@ -3,13 +3,15 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --colors",
-    "watch": "webpack --colors --watch",
-    "server": "webpack-dev-server --mode development --port 8000"
+    "build": "cross-env NODE_ENV=prod node ./environment/env.js && webpack --colors",
+    "watch": "cross-env NODE_ENV=dev node ./environment/env.js && webpack --colors --watch",
+    "server": "light-server -s . -c bs-config.json"
   },
   "private": true,
   "dependencies": {
     "css-loader": "^2.1.1",
+    "dotenv": "^8.0.0",
+    "light-server": "^2.6.2",
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "sass-loader": "^7.1.0",
@@ -21,6 +23,8 @@
     "webpack-dev-server": "^3.4.1"
   },
   "devDependencies": {
-    "mini-css-extract-plugin": "^0.7.0"
+    "cross-env": "^5.2.0",
+    "mini-css-extract-plugin": "^0.7.0",
+    "webpack-livereload-plugin": "^2.2.0"
   }
 }

@@ -1,8 +1,9 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const LiveReloadPlugin = require('webpack-livereload-plugin');
 
-const isProduction = typeof NODE_ENV !== 'undefined' && NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'prod';
 const mode = isProduction ? 'production' : 'development';
 const devtool = isProduction ? false : 'inline-source-map';
 module.exports = [
@@ -16,7 +17,7 @@ module.exports = [
                 {
                     test: /\.tsx?$/,
                     use: 'ts-loader',
-                    exclude: /node_modules/
+                    exclude: ["/environment/", "/node_modules/"]
                 },
                 {
                     test: [/.css$|.scss$/],
@@ -39,7 +40,8 @@ module.exports = [
 
         output: {
             filename: 'main.js',
-            path: path.resolve(__dirname, 'dist')
+            path: path.resolve(__dirname, 'dist'),
+            publicPath: '/dist/'
         },
         node: {
             __dirname: false,
@@ -52,9 +54,10 @@ module.exports = [
             }),
             new OptimizeCSSAssetsPlugin({
                 cssProcessorPluginOptions: {
-                    preset: ['default', { discardComments: { removeAll: true } }],
+                    preset: ['default', {discardComments: {removeAll: true}}],
                 }
-            })
+            }),
+            new LiveReloadPlugin()
         ]
     }
 ];

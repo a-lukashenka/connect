@@ -1,12 +1,18 @@
 import './styles/style.scss'
+import { StylesConnector } from './styles-connector';
+import * as dotenv from 'dotenv';
 
 export class MainClass {
     constructor() {
-        this.doSomething();
+        // const conf = dotenv.config();
+        // console.log(conf);
+        this.init()
     }
 
-    doSomething(): void {
-        console.log(150);
+    init(): void {
+        // const env: any = process.env;
+        // console.log(env);
+        new StylesConnector().init();
     }
 }
 new MainClass();
