@@ -1,4 +1,4 @@
-import { TestClass } from './test';
+import './styles/style.scss'
 
 export class MainClass {
     constructor() {
@@ -6,8 +6,7 @@ export class MainClass {
     }
 
     doSomething(): void {
-        const a = new TestClass();
-        console.log(a.a + 10);
+        console.log(150);
     }
 }
 new MainClass();
