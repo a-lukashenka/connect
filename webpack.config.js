@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
+const DefinePlugin = require('webpack/lib/DefinePlugin');
 
 const isProduction = process.env.NODE_ENV === 'prod';
 const mode = isProduction ? 'production' : 'development';
@@ -57,7 +58,10 @@ module.exports = [
                     preset: ['default', {discardComments: {removeAll: true}}],
                 }
             }),
-            new LiveReloadPlugin()
+            new LiveReloadPlugin(),
+            new DefinePlugin({
+                PRODUCTION: isProduction,
+            }),
         ]
     }
 ];
