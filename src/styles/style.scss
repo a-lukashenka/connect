@@ -1,11 +1,501 @@
 html {
-  display: flex;
-  height: 100%;
+    display: flex;
+    height: 100%;
 }
 
 body {
-  height: 100%;
-  margin: 0;
-  width: 100%;
-  background: lightblue;
+    height: 100%;
+    margin: 0;
+    width: 100%;
+    background: lightblue;
 }
+
+#via-connect {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+    transition-property: visibility, opacity;
+    backface-visibility: hidden;
+    display: block;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+#via-connect {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+    transition-property: visibility, opacity;
+    backface-visibility: hidden;
+    display: block;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    max-width: 300px;
+}
+
+#via-connect__form-body {
+    padding: .5em;
+    background: #f6f6f8;
+}
+
+#via-connect__header-wrapper {
+    background: #3677e0;
+
+    p {
+        margin: 0;
+        text-align: center;
+        padding: .5em;
+        color: #fff;
+        font-weight: 600;
+    }
+}
+
+#via-connect__form-wrapper {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 5px 50px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden !important;
+}
+
+#via-connect__message-wrapper {
+    padding: .5em;
+    background: #fff;
+    border-radius: 0;
+    border-radius: 10px 10px 10px 0;
+    overflow: hidden;
+    color: #828385;
+    margin-left: 0;
+    margin-right: 20px;
+    margin-bottom: 10px;
+
+    &.blue {
+        background: #e3eaf1;
+    }
+
+    &.right {
+        margin-right: 0;
+        margin-left: 20px;
+        border-radius: 0;
+        border-radius: 10px 10px 0 10px;
+    }
+}
+
+//@-webkit-keyframes via-connect-chat-appear-from-bottom {
+//  from {
+//    opacity: 0;
+//    -webkit-transform: translateY(20px) scale(.97);
+//    transform: translateY(20px) scale(.97)
+//  }
+//  to {
+//    opacity: 1;
+//    -webkit-transform: translateY(0) scale(1);
+//    transform: translateY(0) scale(1)
+//  }
+//}
+//
+//@keyframes via-connect-chat-appear-from-bottom {
+//  from {
+//    opacity: 0;
+//    -webkit-transform: translateY(20px) scale(.97);
+//    transform: translateY(20px) scale(.97)
+//  }
+//  to {
+//    opacity: 1;
+//    -webkit-transform: translateY(0) scale(1);
+//    transform: translateY(0) scale(1)
+//  }
+//}
+//
+//@-webkit-keyframes via-connect-chat-appear-from-top {
+//  from {
+//    opacity: 0;
+//    -webkit-transform: translateY(-20px) scale(.97);
+//    transform: translateY(-20px) scale(.97)
+//  }
+//  to {
+//    opacity: 1;
+//    -webkit-transform: translateY(0) scale(1);
+//    transform: translateY(0) scale(1)
+//  }
+//}
+//
+//@keyframes via-connect-chat-appear-from-top {
+//  from {
+//    opacity: 0;
+//    -webkit-transform: translateY(-20px) scale(.97);
+//    transform: translateY(-20px) scale(.97)
+//  }
+//  to {
+//    opacity: 1;
+//    -webkit-transform: translateY(0) scale(1);
+//    transform: translateY(0) scale(1)
+//  }
+//}
+//
+//@-webkit-keyframes via-connect-chat-appear {
+//  from {
+//    opacity: 0;
+//    -webkit-transform: scale(.95);
+//    transform: scale(.95)
+//  }
+//  to {
+//    opacity: 1;
+//    -webkit-transform: scale(1);
+//    transform: scale(1)
+//  }
+//}
+//
+//@keyframes via-connect-chat-appear {
+//  from {
+//    opacity: 0;
+//    -webkit-transform: scale(.95);
+//    transform: scale(.95)
+//  }
+//  to {
+//    opacity: 1;
+//    -webkit-transform: scale(1);
+//    transform: scale(1)
+//  }
+//}
+//
+//@-webkit-keyframes via-connect-round-button-appear {
+//  from {
+//    opacity: 0;
+//    -webkit-transform: scale(.5);
+//    transform: scale(.5)
+//  }
+//  to {
+//    opacity: 1;
+//    -webkit-transform: scale(1);
+//    transform: scale(1)
+//  }
+//}
+//
+//@keyframes via-connect-round-button-appear {
+//  from {
+//    opacity: 0;
+//    -webkit-transform: scale(.5);
+//    transform: scale(.5)
+//  }
+//  to {
+//    opacity: 1;
+//    -webkit-transform: scale(1);
+//    transform: scale(1)
+//  }
+//}
+//
+//@-webkit-keyframes via-connect-tab-button-appear {
+//  from {
+//    opacity: 0;
+//    -webkit-transform: scale(.9);
+//    transform: scale(.9)
+//  }
+//  to {
+//    opacity: 1;
+//    -webkit-transform: scale(1);
+//    transform: scale(1)
+//  }
+//}
+//
+//@keyframes via-connect-tab-button-appear {
+//  from {
+//    opacity: 0;
+//    -webkit-transform: scale(.9);
+//    transform: scale(.9)
+//  }
+//  to {
+//    opacity: 1;
+//    -webkit-transform: scale(1);
+//    transform: scale(1)
+//  }
+//}
+//
+//@-webkit-keyframes via-connect-transparent-appear {
+//  from {
+//    opacity: 0
+//  }
+//  to {
+//    opacity: 1
+//  }
+//}
+//
+//@keyframes via-connect-transparent-appear {
+//  from {
+//    opacity: 0
+//  }
+//  to {
+//    opacity: 1
+//  }
+//}
+//
+//html.via-connect-mobile-widget-expanded, body.via-connect-mobile-widget-expanded {
+//  overflow: hidden !important;
+//  height: 100% !important;
+//  width: 100% !important;
+//  position: fixed !important;
+//  margin: 0 !important;
+//  top: 0 !important;
+//  left: 0 !important
+//}
+//
+//#via-connect {
+//  visibility: hidden;
+//  opacity: 0;
+//  position: fixed;
+//  max-height: calc(100% - 40px);
+//  max-width: calc(100% - 40px);
+//  -webkit-transition: .2s linear;
+//  transition: .2s linear;
+//  -webkit-transition-property: visibility, opacity;
+//  transition-property: visibility, opacity;
+//  -webkit-backface-visibility: hidden;
+//  backface-visibility: hidden;
+//  width: auto;
+//  height: auto;
+//  min-height: 0;
+//  min-width: 0;
+//  display: block;
+//  -webkit-box-sizing: content-box;
+//  box-sizing: content-box;
+//  padding: 0;
+//  margin: 0;
+//}
+//
+//@media print {
+//  #via-connect {
+//    display: none
+//  }
+//}
+//
+//#via-connect__iframe-wrapper, #via-connect__iframe {
+//  left: 0 !important;
+//  top: 0 !important;
+//  margin: 0 !important;
+//  padding: 0 !important;
+//  display: block !important;
+//  background: transparent !important
+//}
+//
+//#via-connect__iframe-wrapper, #via-connect:not(.via-connect--toggling) #via-connect__iframe, #via-connect__iframe.via-connect__iframe--mode-frame {
+//  height: 100% !important;
+//  width: 100% !important;
+//  min-width: 100% !important;
+//  max-width: 100% !important;
+//  min-height: 100% !important;
+//  max-height: 100% !important
+//}
+//
+//#via-connect__iframe-wrapper {
+//  position: absolute;
+//  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.3);
+//  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.3);
+//  overflow: hidden !important
+//}
+//
+//#via-connect #via-connect__iframe-wrapper, #via-connect.via-connect--safari #via-connect__iframe {
+//  border-radius: 10px
+//}
+//
+//#via-connect.via-connect--mobile-widget:not(.via-connect--expanded), #via-connect.via-connect--mobile-widget:not(.via-connect--expanded) * {
+//  cursor: pointer
+//}
+//
+//#via-connect.via-connect--safari #via-connect__iframe {
+//  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(#000), to(#000));
+//  mask-image: -webkit-gradient(linear, left top, left bottom, from(#000), to(#000));
+//  mask-image: linear-gradient(#000, #000);
+//  -webkit-mask-position: 50% 50%;
+//  mask-position: 50% 50%;
+//  -webkit-mask-size: 100% 100%;
+//  mask-size: 100% 100%;
+//  -webkit-mask-repeat: no-repeat;
+//  mask-repeat: no-repeat
+//}
+//
+//#via-connect:not(.via-connect--expanded) #via-connect__iframe-wrapper {
+//  -webkit-transition: .2s linear;
+//  transition: .2s linear;
+//  -webkit-transition-property: -webkit-box-shadow;
+//  transition-property: -webkit-box-shadow;
+//  transition-property: box-shadow;
+//  transition-property: box-shadow, -webkit-box-shadow
+//}
+//
+//#via-connect:not(.via-connect--expanded):hover #via-connect__iframe-wrapper {
+//  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 0 15px rgba(0, 0, 0, 0.4);
+//  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 0 15px rgba(0, 0, 0, 0.4)
+//}
+//
+//#via-connect.via-connect--visible {
+//  visibility: visible;
+//  opacity: 1
+//}
+//
+//#via-connect.via-connect--animating {
+//  -webkit-transition: 350ms cubic-bezier(.25, .1, 0, 1);
+//  transition: 350ms cubic-bezier(.25, .1, 0, 1);
+//  -webkit-transition-property: height, width, max-width, max-height, top, bottom, left, right, -webkit-transform;
+//  transition-property: height, width, max-width, max-height, top, bottom, left, right, -webkit-transform;
+//  transition-property: height, width, max-width, max-height, top, bottom, left, right, transform;
+//  transition-property: height, width, max-width, max-height, top, bottom, left, right, transform, -webkit-transform
+//}
+//
+//#via-connect.via-connect--style-round:not(.via-connect--expanded) #via-connect__iframe-wrapper, #via-connect.via-connect--style-round.via-connect--safari:not(.via-connect--expanded) #via-connect__iframe {
+//  border-radius: 50%
+//}
+//
+//#via-connect.via-connect--fast-toggle.via-connect--style-round:not(.via-connect--expanded) #via-connect__iframe-wrapper {
+//  -webkit-animation: via-connect-round-button-appear 150ms ease-out 50ms both;
+//  animation: via-connect-round-button-appear 150ms ease-out 50ms both
+//}
+//
+//#via-connect.via-connect--fast-toggle.via-connect--style-tab:not(.via-connect--expanded) #via-connect__iframe-wrapper {
+//  -webkit-animation: via-connect-tab-button-appear 150ms ease-out 50ms both;
+//  animation: via-connect-tab-button-appear 150ms ease-out 50ms both
+//}
+//
+//#via-connect.via-connect--fast-toggle.via-connect--expanded #via-connect__iframe-wrapper {
+//  -webkit-animation: via-connect-chat-appear 150ms ease-out 50ms both;
+//  animation: via-connect-chat-appear 150ms ease-out 50ms both
+//}
+//
+//#via-connect.via-connect--fast-toggle.via-connect--transparent #via-connect__iframe-wrapper {
+//  -webkit-animation-name: via-connect-transparent-appear;
+//  animation-name: via-connect-transparent-appear
+//}
+//
+//#via-connect.via-connect--fast-toggle.via-connect--expanded:not(.via-connect--mobile-widget):not(.via-connect--transparent) #via-connect__iframe-wrapper {
+//  -webkit-animation-name: via-connect-chat-appear-from-bottom;
+//  animation-name: via-connect-chat-appear-from-bottom
+//}
+//
+//#via-connect.via-connect--fast-toggle.via-connect--pos-top.via-connect--expanded:not(.via-connect--mobile-widget):not(.via-connect--transparent) #via-connect__iframe-wrapper {
+//  -webkit-animation-name: via-connect-chat-appear-from-top;
+//  animation-name: via-connect-chat-appear-from-top
+//}
+//
+//#via-connect.via-connect--expanded #via-connect__iframe-wrapper {
+//  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 5px 50px rgba(0, 0, 0, 0.2);
+//  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 5px 50px rgba(0, 0, 0, 0.2)
+//}
+//
+//#via-connect.via-connect--side-bottom {
+//  bottom: 20px
+//}
+//
+//#via-connect.via-connect--side-left {
+//  left: 20px
+//}
+//
+//#via-connect.via-connect--side-left.via-connect--style-tab:not(.via-connect--expanded) {
+//  left: 10px
+//}
+//
+//#via-connect.via-connect--side-right {
+//  right: 20px
+//}
+//
+//#via-connect.via-connect--side-right.via-connect--style-tab:not(.via-connect--expanded) {
+//  right: 10px
+//}
+//
+//#via-connect.via-connect--side-left.via-connect--expanded {
+//  bottom: 20px;
+//  left: 20px
+//}
+//
+//#via-connect.via-connect--side-right.via-connect--expanded {
+//  bottom: 20px;
+//  right: 20px
+//}
+//
+//#via-connect.via-connect--pos-right {
+//  right: 20px
+//}
+//
+//#via-connect.via-connect--pos-left {
+//  left: 20px
+//}
+//
+//#via-connect.via-connect--pos-center {
+//  left: 50%
+//}
+//
+//#via-connect.via-connect--pos-top.via-connect--style-tab:not(.via-connect--expanded) {
+//  bottom: 100%;
+//  margin-bottom: -20px
+//}
+//
+//#via-connect.via-connect--pos-top.via-connect--style-round:not(.via-connect--expanded) {
+//  top: 20px
+//}
+//
+//#via-connect.via-connect--pos-bottom:not(.via-connect--expanded) {
+//  bottom: 20px
+//}
+//
+//#via-connect.via-connect--pos-middle:not(.via-connect--expanded) {
+//  bottom: 50%
+//}
+//
+//#via-connect.via-connect--mobile-widget.via-connect--expanded:not(.via-connect--transparent) {
+//  max-width: none;
+//  max-height: none;
+//  top: 0 !important;
+//  bottom: 0 !important
+//}
+//
+//#via-connect.via-connect--mobile-widget.via-connect--expanded #via-connect__iframe-wrapper, #via-connect.via-connect--safari.via-connect--mobile-widget.via-connect--expanded #via-connect__iframe {
+//  border-radius: .1px
+//}
+//
+//#via-connect.via-connect--mobile-widget.via-connect--expanded.via-connect--pos-right:not(.via-connect--transparent) {
+//  right: 0
+//}
+//
+//#via-connect.via-connect--mobile-widget.via-connect--expanded.via-connect--pos-left:not(.via-connect--transparent) {
+//  left: 0
+//}
+//
+//#via-connect.via-connect--mobile-widget.via-connect--expanded.via-connect--pos-center:not(.via-connect--transparent) {
+//  left: 0
+//}
+//
+//#via-connect.via-connect--mobile-widget.via-connect--expanded.via-connect--side-right:not(.via-connect--transparent) {
+//  right: 0
+//}
+//
+//#via-connect.via-connect--mobile-widget.via-connect--expanded.via-connect--side-left:not(.via-connect--transparent) {
+//  left: 0
+//}
+//
+//#via-connect.via-connect--transparent.via-connect--expanded {
+//  bottom: 10px;
+//}
+//
+//#via-connect.via-connect--transparent.via-connect--expanded #via-connect__iframe-wrapper {
+//  -webkit-box-shadow: none;
+//  box-shadow: none
+//}
+//
+//#via-connect.via-connect--side-left.via-connect--transparent, #via-connect.via-connect--pos-left.via-connect--transparent {
+//  left: 10px
+//}
+//
+//#via-connect.via-connect--side-right.via-connect--transparent, #via-connect.via-connect--pos-right.via-connect--transparent {
+//  right: 10px
+//}
+//
+//#via-connect.via-connect--mobile-widget.via-connect--transparent {
+//  max-height: 251px
+//}

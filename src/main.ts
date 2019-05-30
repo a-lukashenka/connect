@@ -1,4 +1,5 @@
 import './styles/style.scss'
+import { Form } from './form';
 
 export class MainClass {
     constructor() {
@@ -6,7 +7,8 @@ export class MainClass {
     }
 
     init(): void {
-        console.log(CONFIG);
+        new Form().createForm();
     }
 }
+
 new MainClass();
