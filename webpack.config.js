@@ -1,5 +1,5 @@
 const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
@@ -9,10 +9,7 @@ const env = process.env;
 const mode = env.PROD ? 'production' : 'development';
 const devtool = env.PROD ? false : 'inline-source-map';
 dotenv.config();
-console.log({
-    apiUrl: env.BASE_URL,
-    production: env.PROD,
-});
+
 module.exports = [
     {
         entry: './src/main.ts',
@@ -29,7 +26,7 @@ module.exports = [
                 {
                     test: [/.css$|.scss$/],
                     use: [
-                        !env.PROD ? 'style-loader' : MiniCssExtractPlugin.loader,
+                        'style-loader',
                         'css-loader',
                         {
                             loader: 'sass-loader',
@@ -54,11 +51,10 @@ module.exports = [
             __dirname: false,
             __filename: false,
         },
+        optimization: {
+            minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+        },
         plugins: [
-            new MiniCssExtractPlugin({
-                filename: "[name].css",
-                chunkFilename: "[id].css"
-            }),
             new OptimizeCSSAssetsPlugin({
                 cssProcessorPluginOptions: {
                     preset: ['default', {discardComments: {removeAll: true}}],
@@ -67,10 +63,8 @@ module.exports = [
             new LiveReloadPlugin(),
             new DefinePlugin({
                 CONFIG: JSON.stringify({
-                    apiUrl: env.BASE_URL,
-                    production: env.PROD,
+                    apiUrl: env.API_URL,
                 }),
-                PRODUCTION: JSON.stringify(env.PROD),
             }),
         ]
     }
