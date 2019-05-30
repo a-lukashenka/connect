@@ -3,10 +3,16 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
+const dotenv =  require('dotenv');
 
-const isProduction = process.env.NODE_ENV === 'prod';
-const mode = isProduction ? 'production' : 'development';
-const devtool = isProduction ? false : 'inline-source-map';
+const env = process.env;
+const mode = env.PROD ? 'production' : 'development';
+const devtool = env.PROD ? false : 'inline-source-map';
+dotenv.config();
+console.log({
+    apiUrl: env.BASE_URL,
+    production: env.PROD,
+});
 module.exports = [
     {
         entry: './src/main.ts',
@@ -23,7 +29,7 @@ module.exports = [
                 {
                     test: [/.css$|.scss$/],
                     use: [
-                        process.env.NODE_ENV == 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+                        !env.PROD ? 'style-loader' : MiniCssExtractPlugin.loader,
                         'css-loader',
                         {
                             loader: 'sass-loader',
@@ -60,7 +66,11 @@ module.exports = [
             }),
             new LiveReloadPlugin(),
             new DefinePlugin({
-                PRODUCTION: isProduction,
+                CONFIG: JSON.stringify({
+                    apiUrl: env.BASE_URL,
+                    production: env.PROD,
+                }),
+                PRODUCTION: JSON.stringify(env.PROD),
             }),
         ]
     }

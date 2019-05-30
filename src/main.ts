@@ -7,7 +7,7 @@ export class MainClass {
     }
 
     init(): void {
-        console.log(PRODUCTION);
+        console.log(PRODUCTION, CONFIG);
         new StylesConnector().init();
     }
 }
