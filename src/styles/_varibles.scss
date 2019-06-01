@@ -1,0 +1,12 @@
+$p-color: #c6c6c6;
+$bg-color: #424242;
+$hl-color: #2196F3;
+$main-color: #3677e0;
+
+$muted-color: mix(white, $bg-color, 70%);
+$trans-time: 250ms;
+
+$circle-size: 45px;
+$outside-circle-size: $circle-size + 10px;
+$outside-circle-border: 2px;
+$outside-circle-margin: (($outside-circle-size / 2) + $outside-circle-border) * -1;
