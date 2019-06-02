@@ -6,6 +6,7 @@
     bottom: 20px;
     z-index: 1000;
 }
+
 .button {
     text-align: center;
     text-transform: uppercase;
@@ -14,10 +15,13 @@
     font-weight: 100;
     font-family: "Segoe UI";
     letter-spacing: 1px;
+    background: $main-color !important;
+    color: $main-color !important;
 
     &:before {
         border-radius: $circle-size;
-        border: $outside-circle-border solid #468cdc;
+        border: $outside-circle-border solid;
+        border-color: inherit;
         box-shadow: 0 0 15px rgba(0, 255, 204, 0.15), 0 0 15px rgba(0, 255, 204, 0.15) inset;
         content: "";
         display: block;
@@ -38,10 +42,9 @@
     }
 
     &.circle {
-        background: $main-color;
+        background: inherit;
         border: none;
         border-radius: 900px;
-        color: #e4ecfa;
         cursor: pointer;
         width: $circle-size;
         height: $circle-size;
@@ -53,7 +56,6 @@
         justify-content: center;
 
         &:hover {
-            background: #3e70aa;
             padding: -2px;
         }
     }

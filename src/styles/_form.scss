@@ -15,18 +15,23 @@
     max-width: 300px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 5px 50px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
-    overflow: hidden !important;
+    overflow: hidden;
+    visibility: hidden;
     opacity: 0;
 
     &.visible {
         opacity: 1;
         bottom: 90px;
+        z-index: 1000;
+        visibility: visible;
     }
 }
 
 .form-body {
-    padding: 15px;
+    padding: 0 15px 15px;
     background: #f6f6f8;
+    max-height: 500px;
+    overflow: auto;
 
     .form {
         .agreement {
@@ -60,7 +65,7 @@
 }
 
 .header {
-    background: #3677e0;
+    background: $main-color;
 
     p {
         color: #fff;
@@ -70,7 +75,6 @@
 
 .footer {
     background: #fff;
-    margin-top: -15px;
     padding: 10px;
 
     p {
@@ -80,7 +84,7 @@
 }
 
 .message-wrapper {
-        margin-bottom: 15px;
+        padding-top: 15px;
 
     h5 {
         margin: 0 0 10px;

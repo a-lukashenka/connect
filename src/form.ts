@@ -2,41 +2,57 @@ import { CHAT_TEMPLATE } from './templates/chat-html';
 import { CHAT_BUTTON_TEMPLATE } from './templates/chat-button-html';
 import { SUBMIT_FORM_TEMPLATE } from './templates/submit-form-html';
 import { SUCCESS_FORM_TEMPLATE } from './templates/success-form-html';
+import { WELCOM_MESSAGE_TEMPLATE } from './templates/welcom-message-html';
 
 export class Form {
-    isVisible: boolean = false;
+    isChatVisible: boolean = false;
+    isGreetingShouldShow: boolean = true;
     isNewRequest: boolean = true;
+
     formContainer: HTMLElement;
     chatContainer: HTMLElement;
+    greetingContainer: HTMLElement;
+    buttonContainer: HTMLElement;
 
     createForm(): void {
-        // container
         const body = document.body;
 
         this.chatContainer = document.createElement('div');
-        const button = document.createElement('div');
-
         this.chatContainer.setAttribute('id', 'via-connect');
-        button.setAttribute('id', 'via-connect-btn-container');
+
+        this.buttonContainer = document.createElement('div');
+        this.buttonContainer.setAttribute('id', 'via-connect-btn-container');
+
+        this.greetingContainer = document.createElement('div');
+        this.greetingContainer.setAttribute('id', 'via-connect-greeting-container');
 
         this.chatContainer.innerHTML += CHAT_TEMPLATE;
-        button.innerHTML += CHAT_BUTTON_TEMPLATE;
+        this.buttonContainer.innerHTML += CHAT_BUTTON_TEMPLATE;
+        this.greetingContainer.innerHTML += WELCOM_MESSAGE_TEMPLATE;
 
-        body.appendChild(button);
+        body.appendChild(this.buttonContainer);
         body.appendChild(this.chatContainer);
+        body.appendChild(this.greetingContainer);
 
-        button.addEventListener('click', () => {
-            this.isVisible = !this.isVisible;
-            this.setChatView();
+        this.buttonContainer.addEventListener('click', () => {
+            this.isChatVisible = !this.isChatVisible;
+            this.toggleChatView();
+            this.toggleGreetingView(true);
         });
 
-        this.formContainer = document.getElementById('via-connect__form-body');
-        this.setView();
-        this.setTitles();
+        this.greetingContainer.addEventListener('click', () => {
+            this.toggleGreetingView(true);
+        });
+
         this.setChatView();
+        this.setTitles();
+        this.toggleChatView();
+        this.toggleGreetingView();
     }
 
-    setView(): void {
+    setChatView(): void {
+        this.formContainer = document.getElementById('via-connect__form-body');
+
         if (this.isNewRequest) {
             this.clearSuccessContainer();
             this.setFormContainer();
@@ -63,7 +79,7 @@ export class Form {
                 message: form['message']['value'],
             });
             this.isNewRequest = false;
-            this.setView();
+            this.setChatView();
         };
     }
 
@@ -96,8 +112,34 @@ export class Form {
         initialMessageTitle.appendChild(initialMessageTitleText);
     }
 
-    setChatView(): void {
-        setTimeout(() => this.chatContainer.classList.toggle('visible', this.isVisible), 0);
+    toggleChatView(): void {
+        setTimeout(() => this.chatContainer.classList.toggle('visible', this.isChatVisible), 0);
+    }
+
+    toggleGreetingView(close?: boolean): void {
+        if (!this.isGreetingShouldShow ||
+            this.parse(localStorage.getItem('via-connect__greeting_disabled'))) {
+            return;
+        }
+        if (close) {
+            this.isGreetingShouldShow = false;
+            this.greetingContainer.classList.toggle('visible', false);
+            localStorage.setItem('via-connect__greeting_disabled', 'true');
+            return;
+        }
+        setTimeout(() => {
+            if (this.isGreetingShouldShow) {
+                this.greetingContainer.classList.toggle('visible', true);
+            }
+        }, 1000);
+    }
+
+    parse(value: string): boolean {
+        try {
+            return JSON.parse(value);
+        } catch (e) {
+            return false;
+        }
     }
 }
 
