@@ -13,10 +13,8 @@
     text-decoration: none;
     font-size: 14px;
     font-weight: 100;
-    font-family: "Segoe UI";
+    font-family: 'Roboto';
     letter-spacing: 1px;
-    background: $main-color !important;
-    color: $main-color !important;
 
     &:before {
         border-radius: $circle-size;

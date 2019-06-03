@@ -3,15 +3,29 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <title>Connect</title>
     <base href="/">
     <script src="http://localhost:35729/livereload.js"></script>
+    <style>input {background: red}</style>
 </head>
 
 <body>
 Connect app based on TypeScript
-<script type="module" src="dist/main.js"></script>
-
+<script>
+    (function (d, w, c) {
+        w.ViaToken = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJob3N0bmFtZSI6ImxvY2FsaG9zdCIsImxvY2F0aW9uSWQiOiI1YzFhM2QwOWU3YzI1NzFlZThjMTM4YTEiLCJpYXQiOjE1NTk1NDM4OTJ9.u2OfNW3GomsnIDX5JS0P7zEv4UON6yIxEbmEFHgz6sRyAkSKxzNLKMAnp1ZIfXuIkf37WZ_EusVofZgodT56tUD3C20SFvs73zULJAk93v1XR6n43ACuO0cI4Eo5waCHxQ9oZeAYvl_TcClxViFXeIO46u7dw-VQXZelukTpQxg';
+        var s = d.createElement('script');
+        w[c] = w[c] || function () {
+            (w[c].q = w[c].q || []).push(arguments);
+        };
+        s.async = true;
+        s.src = 'dist/main.js';
+        if (d.head) d.head.appendChild(s);
+    })(document, window, 'ViaConnect');
+</script>
 </body>
+
 
 </html>

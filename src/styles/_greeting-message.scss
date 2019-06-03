@@ -45,17 +45,20 @@
     }
 
     img {
-        width: 50px;
-        height: 50px;
+        min-width: 50px;
+        max-width: 50px;
+        min-height: 50px;
+        max-height: 50px;
         border-radius: 50%;
         object-fit: cover;
         object-position: center center;
-        margin-right: 20px;
     }
 
     p {
         margin: 0;
         text-align: left;
         font-size: 14px;
+        padding-inline-start: 20px;
+        padding-left: 20px;
     }
 }
