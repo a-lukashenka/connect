@@ -1,3 +1,4 @@
+// tslint:disable: max-line-length
 export const SUBMIT_FORM_TEMPLATE = '<form id="via-connect__form" class="message-wrapper form">' +
     '    <div class="message right clear">' +
     '      <div class="group">' +

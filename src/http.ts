@@ -5,10 +5,10 @@ import { StorageItem } from './models/enums/local-storage';
 export class Http {
     static getConfig(): Promise<IViaConnectSettings> {
         return window.fetch(`${CONFIG.apiUrl}/vc/settings`, {
-            method: 'GET',
             headers: {
                 Authorization: `Bearer ${window['ViaToken']}`,
             },
+            method: 'GET',
         })
             .then(Http.handleErrors)
             .then(response => {
@@ -29,17 +29,17 @@ export class Http {
             return Promise.reject(new Error('Token doesn\'t exist'));
         }
         return fetch(`${CONFIG.apiUrl}/vc/send`, {
-            method: 'POST',
+            body: JSON.stringify(body),
             headers: {
                 Authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(body),
+            method: 'POST',
         })
             .then(Http.handleErrors);
     }
 
-    static handleErrors(response) {
+    static handleErrors(response: Response): any {
         if (!response.ok) {
             throw Error(response.statusText);
         }

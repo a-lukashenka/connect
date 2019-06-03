@@ -1,3 +1,4 @@
+// tslint:disable: max-line-length
 export const SUCCESS_FORM_TEMPLATE = '<div id="via-connect_success" class="success">' +
     '  <div class="message-wrapper">' +
     '      <div class="message right">' +

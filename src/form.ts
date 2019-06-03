@@ -181,7 +181,6 @@ export class Form {
         const bannerTitle = document.getElementById('via-connect__banner');
         const initialMessageTitle = document.getElementById('via-connect__initial-message');
 
-
         const bannerTitleText = document.createTextNode(this.config.dialogSettings.title ||
             BASE_SETTINGS.dialogSettings.title);
         const initialMessageTitleText = document.createTextNode(this.config.dialogSettings.speech ||
@@ -199,7 +198,7 @@ export class Form {
 
     toggleLoader(state: boolean): void {
         const loader = document.getElementById('via-connect__form-body_loading');
-        loader.classList.toggle('loading', state)
+        loader.classList.toggle('loading', state);
     }
 
     toggleGreetingView(close?: boolean): void {

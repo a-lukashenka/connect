@@ -7,7 +7,7 @@ import { Http } from './http';
 export class MainClass {
     constructor() {
         ES6Promise.polyfill();
-        this.init()
+        this.init();
     }
 
     init(): void {
@@ -22,11 +22,11 @@ export class MainClass {
             .then(settings => {
                 new Form(settings).createForm();
             })
-            .catch(e => console.error(e))
+            .catch(e => console.error(e));
     }
 
     static get isServer(): boolean {
-        return !(typeof window != 'undefined' && window.document);
+        return !(typeof window !== 'undefined' && window.document);
     }
 }
 
