@@ -19,7 +19,7 @@
     visibility: hidden;
     font-family: 'Roboto', sans-serif;
 
-    &.visible {
+    &.via-connect__visible {
         opacity: 1;
         bottom: 90px;
         z-index: 1000;
@@ -27,7 +27,7 @@
         visibility: visible;
     }
 
-    .greeting-container {
+    .via-connect__greeting-container {
         position: relative;
         display: flex;
         border-radius: 6px;

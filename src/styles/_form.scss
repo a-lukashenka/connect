@@ -20,195 +20,196 @@
   opacity: 0;
 
 
-  &.visible {
+  &.via-connect__visible {
     opacity: 1;
     bottom: 90px;
     z-index: 1000;
     visibility: visible;
   }
-}
 
-.form-body {
-  padding: 0 15px 15px;
-  background: $gray3;
-  max-height: 500px;
-  overflow: auto;
-  position: relative;
+  .via-connect__form-body {
+    padding: 0 15px 15px;
+    background: $gray3;
+    max-height: 500px;
+    overflow: auto;
+    position: relative;
 
-  .loading {
-    left: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.52);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 10;
+    .via-connect__loading {
+      left: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.52);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border: 3px solid rgba(255, 255, 255, .3);
+        border-radius: 50%;
+        border-top-color: #fff;
+        animation: spin .75s ease-in-out infinite;
+      }
+    }
+
+    .via-connect__form {
+      .via-connect__agreement {
+        text-align: center;
+        color: $p-color;
+        margin-top: 10px !important;
+        padding: 0 20px !important;
+        font-size: 10px !important;
+      }
+    }
+
+    .via-connect__submit {
+      display: block;
+      margin: 10px auto 0;
+      height: 35px;
+      width: 80px;
+
+      a {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  .via-connect__header, .via-connect__footer {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    span {
-      display: inline-block;
-      width: 30px;
-      height: 30px;
-      border: 3px solid rgba(255, 255, 255, .3);
-      border-radius: 50%;
-      border-top-color: #fff;
-      animation: spin .75s ease-in-out infinite;
-    }
-  }
-
-  .form {
-    .agreement {
-      text-align: center;
-      color: $p-color;
-      margin-top: 10px !important;
-      padding: 0 20px !important;
-      font-size: 10px !important;
-    }
-  }
-
-  .submit {
-    margin-top: 10px;
-    height: 35px;
-    width: 80px;
-
-    a {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-}
-
-.header, .footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-
-  p {
-    margin: 0;
-    padding: 0;
-  }
-
-  svg {
-    margin-inline-end: 10px;
-    margin-right: 10px;
-  }
-}
-
-.header {
-  background: $main-color;
-  color: #fff;
-
-  p {
-    font-size: 14px !important;
-    color: inherit;
-  }
-
-  .svg {
-    fill: currentColor;
-  }
-
-
-}
-
-.footer {
-  background: #fff;
-  padding: 10px;
-
-  p {
-    color: $p-color;
-    font-size: 10px;
-  }
-}
-
-.message-wrapper {
-  padding-top: 15px;
-
-  h5 {
-    margin: 0 0 10px;
-    color: $gray1;
-  }
-
-  p {
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
-  }
-
-  .status {
-    text-align: right;
-    font-size: 10px;
-    display: block;
-    color: $gray2;
-    margin-top: 5px;
-  }
-
-  .message {
     padding: 15px;
-    background: #fff;
-    overflow: hidden;
-    color: #828385;
-    text-align: start;
-    text-align: left;
 
-    input, textarea {
-      width: 100%;
-      font-size: 14px;
+    p {
+      margin: 0;
+      padding: 0;
     }
 
-    &.right {
-      margin-inline-start: 20px;
-      border-radius: 15px 15px 0 15px;
-      background: $blue1;
-    }
-
-    &.left {
-      margin-inline-end: 20px;
-      border-radius: 15px 15px 15px 0;
-      background: $blue2;
-    }
-
-    &.clear {
-      background-color: #fff;
-    }
-
-    &__header {
-      text-align: center;
-      color: $main-color;
-    }
-
-    &__body {
-      text-align: center;
-
-      h3 {
-        margin: 0 0 10px;
-        font-weight: 600;
-        font-size: 14px !important;
-      }
-
-      p {
-        color: $gray2;
-        margin-bottom: 10px;
-      }
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-color: #fff;
-      margin: 13px -15px -15px;
-      padding: 15px;
+    svg {
+      margin-inline-end: 10px;
+      margin-right: 10px;
     }
   }
-}
 
-@keyframes spin {
-  to {
-    -webkit-transform: rotate(360deg);
+  .via-connect__header {
+    background: $main-color;
+    color: #fff;
+
+    p {
+      font-size: 14px !important;
+      color: inherit;
+    }
+
+    .via-connect__svg {
+      fill: currentColor;
+    }
+
+
+  }
+
+  .via-connect__footer {
+    background: #fff;
+    padding: 10px;
+
+    p {
+      color: $p-color;
+      font-size: 10px;
+    }
+  }
+
+  .via-connect__message-wrapper {
+    padding-top: 15px;
+
+    h5 {
+      margin: 0 0 10px;
+      color: $gray1;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+      font-size: 12px;
+    }
+
+    .via-connect__status {
+      text-align: right;
+      font-size: 10px;
+      display: block;
+      color: $gray2;
+      margin-top: 5px;
+    }
+
+    .via-connect__message {
+      padding: 15px;
+      background: #fff;
+      overflow: hidden;
+      color: #828385;
+      text-align: start;
+      text-align: left;
+
+      input, textarea {
+        width: 100%;
+        font-size: 14px;
+      }
+
+      &.via-connect__right {
+        margin-inline-start: 20px;
+        border-radius: 15px 15px 0 15px;
+        background: $blue1;
+      }
+
+      &.via-connect__left {
+        margin-inline-end: 20px;
+        border-radius: 15px 15px 15px 0;
+        background: $blue2;
+      }
+
+      &.via-connect__clear {
+        background-color: #fff;
+      }
+
+      &__header {
+        text-align: center;
+        color: $main-color;
+      }
+
+      &__body {
+        text-align: center;
+
+        h3 {
+          margin: 0 0 10px;
+          font-weight: 600;
+          font-size: 14px !important;
+        }
+
+        p {
+          color: $gray2;
+          margin-bottom: 10px;
+        }
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        margin: 13px -15px -15px;
+        padding: 15px;
+      }
+    }
+  }
+
+  @keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
   }
 }

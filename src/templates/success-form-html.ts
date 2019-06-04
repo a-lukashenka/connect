@@ -1,18 +1,18 @@
 // tslint:disable: max-line-length
-export const SUCCESS_FORM_TEMPLATE = '<div id="via-connect_success" class="success">' +
-    '  <div class="message-wrapper">' +
-    '      <div class="message right">' +
+export const SUCCESS_FORM_TEMPLATE = '<div id="via-connect_success" class="via-connect__success">' +
+    '  <div class="via-connect__message-wrapper">' +
+    '      <div class="via-connect__message via-connect__right">' +
     '        <h5 id="via-connect__customer-phone"></h5>' +
     '        <p id="via-connect__customer-message"></p>' +
     '      </div>' +
-    '<span class="status">Received</span>' +
+    '<span class="via-connect__status">Received</span>' +
     '  </div>' +
-    '  <div class="message-wrapper">' +
-    '      <div class="message left">' +
-    '       <div class="message__header">' +
+    '  <div class="via-connect__message-wrapper">' +
+    '      <div class="via-connect__message via-connect__left">' +
+    '       <div class="via-connect__message__header">' +
     '           <p id="via-connect__success_phone"></p>' +
     '       </div>' +
-    '       <div class="message__body">' +
+    '       <div class="via-connect__message__body">' +
     '           <h3 id="via-connect__success_title"></h3>' +
     '           <p id="via-connect__success_message"></p>' +
     '           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">' +

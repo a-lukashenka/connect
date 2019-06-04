@@ -1,6 +1,6 @@
 import 'whatwg-fetch';
 import { IViaConnectSettings } from './models/interfaces/via-connect';
-import { StorageItem } from './models/enums/local-storage';
+import { StorageItem } from './models/enums/storage-item';
 
 export class Http {
     static getConfig(): Promise<IViaConnectSettings> {

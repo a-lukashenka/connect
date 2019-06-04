@@ -5,8 +5,10 @@ import { SUCCESS_FORM_TEMPLATE } from './templates/success-form-html';
 import { WELCOME_MESSAGE_TEMPLATE } from './templates/welcom-message-html';
 import { IViaConnectForm, IViaConnectSettings } from './models/interfaces/via-connect';
 import { AGREEMENT, BASE_SETTINGS } from './models/constants/base-settings';
-import { StorageItem } from './models/enums/local-storage';
+import { StorageItem } from './models/enums/storage-item';
 import { Http } from './http';
+import { DDM } from './ddm';
+import { Attribute } from './models/classes/attribute';
 
 export class Form {
     config: IViaConnectSettings;
@@ -14,6 +16,7 @@ export class Form {
     isGreetingShouldShow: boolean = true;
     isNewRequest: boolean = true;
     formData: IViaConnectForm;
+    iframe: any;
 
     formContainer: HTMLElement;
     chatContainer: HTMLElement;
@@ -22,27 +25,25 @@ export class Form {
 
     constructor(config: IViaConnectSettings) {
         this.config = config;
+        this.iframe = document.createElement('iframe');
     }
 
     createForm(): void {
         const body = document.body;
 
-        this.chatContainer = document.createElement('div');
-        this.chatContainer.setAttribute('id', 'via-connect');
+        this.chatContainer = DDM.create(
+            'div', [new Attribute('id', 'via-connect')], CHAT_TEMPLATE,
+        );
+        this.buttonContainer = DDM.create(
+            'div', [new Attribute('id', 'via-connect-btn-container')], CHAT_BUTTON_TEMPLATE,
+        );
+        this.greetingContainer = DDM.create(
+            'div', [new Attribute('id', 'via-connect-greeting-container')], WELCOME_MESSAGE_TEMPLATE,
+        );
 
-        this.buttonContainer = document.createElement('div');
-        this.buttonContainer.setAttribute('id', 'via-connect-btn-container');
-
-        this.greetingContainer = document.createElement('div');
-        this.greetingContainer.setAttribute('id', 'via-connect-greeting-container');
-
-        this.chatContainer.innerHTML += CHAT_TEMPLATE;
-        this.buttonContainer.innerHTML += CHAT_BUTTON_TEMPLATE;
-        this.greetingContainer.innerHTML += WELCOME_MESSAGE_TEMPLATE;
-
-        body.appendChild(this.buttonContainer);
-        body.appendChild(this.chatContainer);
-        body.appendChild(this.greetingContainer);
+        DDM.append(body, this.buttonContainer);
+        DDM.append(body, this.chatContainer);
+        DDM.append(body, this.greetingContainer);
 
         this.buttonContainer.addEventListener('click', () => {
             this.isChatVisible = !this.isChatVisible;
@@ -66,19 +67,19 @@ export class Form {
 
     setGreetingMessage(): void {
         if (!this.greetingContainer) return;
-        const img = document.getElementById('via-connect__greeting-img');
-        const body = document.getElementById('via-connect__greeting-body');
+        const img = DDM.get('via-connect__greeting-img');
+        const body = DDM.get('via-connect__greeting-body');
 
-        img.setAttribute('src', this.config.welcomeMessage.icon ||
-            BASE_SETTINGS.welcomeMessage.icon);
-        const bodyText = document.createTextNode(this.config.welcomeMessage.message ||
+        DDM.setAttribute(img, new Attribute('src', this.config.welcomeMessage.icon ||
+            BASE_SETTINGS.welcomeMessage.icon));
+        const bodyText = DDM.createTextNode(this.config.welcomeMessage.message ||
             BASE_SETTINGS.welcomeMessage.message);
 
-        body.appendChild(bodyText);
+        DDM.append(body, bodyText);
     }
 
     setChatView(): void {
-        this.formContainer = document.getElementById('via-connect__form-body');
+        this.formContainer = DDM.get('via-connect__form-body');
 
         if (this.isNewRequest) {
             this.clearSuccessContainer();
@@ -91,15 +92,15 @@ export class Form {
 
     setFormContainer(): void {
         if (!this.formContainer) return;
-        this.formContainer.innerHTML += SUBMIT_FORM_TEMPLATE;
+        DDM.setHtml(this.formContainer, SUBMIT_FORM_TEMPLATE);
 
-        const agreementTitle = document.getElementById('via-connect__agreement');
-        const agreementText = document.createTextNode(AGREEMENT);
-        agreementTitle.appendChild(agreementText);
+        const agreementTitle = DDM.get('via-connect__agreement');
+        const agreementText = DDM.createTextNode(AGREEMENT);
+        DDM.append(agreementTitle, agreementText);
 
         this.setSubmitButtonStyle();
 
-        const form = document.getElementById('via-connect__form');
+        const form = DDM.get('via-connect__form');
         form.onsubmit = (e: Event) => {
             e.preventDefault();
             this.formData = {
@@ -127,14 +128,14 @@ export class Form {
     }
 
     clearFormContainer(): void {
-        const form = document.getElementById('via-connect__form');
+        const form = DDM.get('via-connect__form');
         if (!form) return;
-        form.parentNode.removeChild(form);
+        DDM.remove(form);
     }
 
     setSuccessContainer(): void {
         if (!this.formContainer) return;
-        this.formContainer.innerHTML += SUCCESS_FORM_TEMPLATE;
+        DDM.setHtml(this.formContainer, SUCCESS_FORM_TEMPLATE);
         this.setSuccessMessage();
     }
 
@@ -144,97 +145,97 @@ export class Form {
     }
 
     setCustomerMessage(): void {
-        const phone = document.getElementById('via-connect__customer-phone');
-        const message = document.getElementById('via-connect__customer-message');
+        const phone = DDM.get('via-connect__customer-phone');
+        const message = DDM.get('via-connect__customer-message');
 
-        const phoneText = document.createTextNode(this.formData.phone);
-        const messageText = document.createTextNode(this.formData.message);
+        const phoneText = DDM.createTextNode(this.formData.phone);
+        const messageText = DDM.createTextNode(this.formData.message);
 
-        phone.appendChild(phoneText);
-        message.appendChild(messageText);
+        DDM.append(phone, phoneText);
+        DDM.append(message, messageText);
     }
 
     setCompanyMessage(): void {
-        const phone = document.getElementById('via-connect__success_phone');
-        const title = document.getElementById('via-connect__success_title');
-        const body = document.getElementById('via-connect__success_message');
+        const phone = DDM.get('via-connect__success_phone');
+        const title = DDM.get('via-connect__success_title');
+        const body = DDM.get('via-connect__success_message');
 
-        const phoneText = document.createTextNode(this.config.dialogSettings.successMessage.phone ||
+        const phoneText = DDM.createTextNode(this.config.dialogSettings.successMessage.phone ||
             BASE_SETTINGS.dialogSettings.successMessage.phone);
-        const titleText = document.createTextNode(this.config.dialogSettings.successMessage.title ||
+        const titleText = DDM.createTextNode(this.config.dialogSettings.successMessage.title ||
             BASE_SETTINGS.dialogSettings.successMessage.title);
-        const bodyText = document.createTextNode(this.config.dialogSettings.successMessage.message ||
+        const bodyText = DDM.createTextNode(this.config.dialogSettings.successMessage.message ||
             BASE_SETTINGS.dialogSettings.successMessage.message);
 
-        phone.appendChild(phoneText);
-        title.appendChild(titleText);
-        body.appendChild(bodyText);
+        DDM.append(phone, phoneText);
+        DDM.append(title, titleText);
+        DDM.append(body, bodyText);
     }
 
     clearSuccessContainer(): void {
-        const form = document.getElementById('via-connect__form');
-        if (!form) return;
-        form.parentNode.removeChild(form);
+        const success = DDM.get('via-connect_success');
+        if (!success) return;
+        DDM.remove(success)
     }
 
     setTitles(): void {
-        const bannerTitle = document.getElementById('via-connect__banner');
-        const initialMessageTitle = document.getElementById('via-connect__initial-message');
+        const bannerTitle = DDM.get('via-connect__banner');
+        const initialMessageTitle = DDM.get('via-connect__initial-message');
 
-        const bannerTitleText = document.createTextNode(this.config.dialogSettings.title ||
+        const bannerTitleText = DDM.createTextNode(this.config.dialogSettings.title ||
             BASE_SETTINGS.dialogSettings.title);
-        const initialMessageTitleText = document.createTextNode(this.config.dialogSettings.speech ||
+        const initialMessageTitleText = DDM.createTextNode(this.config.dialogSettings.speech ||
             BASE_SETTINGS.dialogSettings.speech);
 
-        bannerTitle.appendChild(bannerTitleText);
-        initialMessageTitle.appendChild(initialMessageTitleText);
+        DDM.append(bannerTitle, bannerTitleText);
+        DDM.append(initialMessageTitle, initialMessageTitleText);
     }
 
     toggleChatView(): void {
         setTimeout(() => {
-            this.chatContainer.classList.toggle('visible', this.isChatVisible);
+            this.chatContainer.classList.toggle('via-connect__visible', this.isChatVisible);
         }, 0);
     }
 
     toggleLoader(state: boolean): void {
-        const loader = document.getElementById('via-connect__form-body_loading');
-        loader.classList.toggle('loading', state);
+        const loader = DDM.get('via-connect__form-body_loading');
+        loader.classList.toggle('via-connect__loading', state);
     }
 
     toggleGreetingView(close?: boolean): void {
         if (!this.isGreetingShouldShow ||
-            localStorage.getItem(StorageItem.GreetingMessage)) {
+            sessionStorage.getItem(StorageItem.GreetingMessage)) {
             return;
         }
         if (close) {
             this.isGreetingShouldShow = false;
-            this.greetingContainer.classList.toggle('visible', false);
-            localStorage.setItem(StorageItem.GreetingMessage, 'true');
+            this.greetingContainer.classList.toggle('via-connect__visible', false);
+            sessionStorage.setItem(StorageItem.GreetingMessage, 'true');
             return;
         }
         setTimeout(() => {
             if (this.isGreetingShouldShow) {
-                this.greetingContainer.classList.toggle('visible', true);
+                this.greetingContainer.classList.toggle('via-connect__visible', true);
             }
-        }, 1000);
+        }, 10000);
     }
 
     setButtonStyle(): void {
-        const button = document.getElementById('via-connect-btn');
+        const button = DDM.get('via-connect-btn');
 
         button.style.color = this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor;
         button.style.background = this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor;
     }
 
     setSubmitButtonStyle(): void {
-        const button = document.getElementById('via-connect__submit-btn');
+        const button = DDM.get('via-connect__submit-btn');
 
         button.style.background = this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor;
         button.style.color = this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor;
     }
 
     setHeaderStyle(): void {
-        const button = document.getElementById('via-connect__header-wrapper');
+        const button = DDM.get('via-connect__header-wrapper');
 
         button.style.background = this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor;
         button.style.color = this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor;

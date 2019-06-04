@@ -27,7 +27,13 @@ module.exports = [
                 {
                     test: [/.css$|.scss$/],
                     use: [
-                        'style-loader',
+                        {
+                            loader: 'style-loader',
+                            options: {
+                                attrs: { 'via-connect-style': 'via-connect-style' }
+                            }
+                        },
+                        // 'style-loader',
                         'css-loader',
                         {
                             loader: 'postcss-loader',

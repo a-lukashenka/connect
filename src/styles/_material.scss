@@ -10,7 +10,7 @@
   }
 
   // FORM // ============================== //
-  form {
+  .via-connect__form {
 
     h1 {
       font-size: 1em;
@@ -39,7 +39,7 @@
     }
   }
 
-  .group {
+  .via-connect__group {
     position: relative;
 
     &:not(:last-of-type) {
@@ -115,7 +115,7 @@
     transition: $trans-time ease all;
   }
 
-  .bar {
+  .via-connect__bar {
     position: relative;
     display: block;
     width: 100%;
@@ -133,7 +133,7 @@
   }
 
   // BUTTONS // ============================== //
-  .btn {
+  .via-connect__btn {
     background: #fff;
     color: mix(black, $muted-color, 25%);
     border: none;
@@ -150,7 +150,7 @@
       box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18), 0 5px 5px rgba(0, 0, 0, 0.12);
     }
 
-    &.btn-link {
+    &.via-connect__btn-link {
       background: $main-color;
       color: #fff;
 
@@ -160,7 +160,7 @@
       }
     }
 
-    &.btn-submit {
+    &.via-connect__btn-submit {
       background: $main-color;
       color: mix(white, $main-color, 70%);
 
@@ -170,7 +170,7 @@
       }
     }
 
-    &.btn-cancel {
+    &.via-connect__btn-cancel {
       background: #eee;
 
       &:hover {
@@ -180,7 +180,7 @@
     }
   }
 
-  .btn-box {
+  .via-connect__btn-box {
     text-align: center;
     background: transparent;
     border: none;
