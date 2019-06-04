@@ -1,5 +1,5 @@
 // tslint:disable: max-line-length
-export const SUCCESS_FORM_TEMPLATE = '<div id="via-connect_success" class="via-connect__success">' +
+export const SUCCESS_FORM_TEMPLATE = '<div id="via-connect_success" class="via-connect__success cleanslate">' +
     '  <div class="via-connect__message-wrapper">' +
     '      <div class="via-connect__message via-connect__right">' +
     '        <h5 id="via-connect__customer-phone"></h5>' +

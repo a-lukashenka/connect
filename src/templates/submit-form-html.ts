@@ -1,5 +1,5 @@
 // tslint:disable: max-line-length
-export const SUBMIT_FORM_TEMPLATE = '<form id="via-connect__form" class="via-connect__message-wrapper via-connect__form">' +
+export const SUBMIT_FORM_TEMPLATE = '<form id="via-connect__form" class="via-connect__message-wrapper via-connect__form cleanslate">' +
     '    <div class="via-connect__message via-connect__right via-connect__clear">' +
     '      <div class="via-connect__group">' +
     '        <input type="text" name="fName" required="required" autocomplete="new-password" novalidate><span class="via-connect__highlight"></span><span class="bar"></span>' +

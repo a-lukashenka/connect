@@ -1,64 +1,64 @@
 @import './varibles';
 
 #via-connect-greeting-container {
-    position: fixed;
-    right: 20px;
-    bottom: 80px;
-    -webkit-transition: .2s linear;
-    transition: .2s linear;
-    transition-property: visibility, opacity, bottom;
-    backface-visibility: hidden;
-    display: block;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    max-width: 300px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 5px 50px rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    opacity: 0;
-    visibility: hidden;
-    font-family: 'Roboto', sans-serif;
+    position: fixed !important;
+    right: 20px !important;
+    bottom: 80px !important;
+    -webkit-transition: .2s linear !important;
+    transition: .2s linear !important;
+    transition-property: visibility, opacity, bottom !important;
+    backface-visibility: hidden !important;
+    display: block !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 300px !important;
+    box-shadow: 0 10px 20px rgba(0,0,0,.2) !important;
+    border-radius: 6px !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    font-family: 'Roboto', sans-serif !important;
 
     &.via-connect__visible {
-        opacity: 1;
-        bottom: 90px;
-        z-index: 1000;
-        cursor: pointer;
-        visibility: visible;
+        opacity: 1 !important;
+        bottom: 90px !important;
+        z-index: 1000 !important;
+        cursor: pointer !important;
+        visibility: visible !important;
     }
 
     .via-connect__greeting-container {
-        position: relative;
-        display: flex;
-        border-radius: 6px;
-        padding: 20px;
-        background: #fff;
-        color: #000;
+        position: relative !important;
+        display: flex !important;
+        border-radius: 6px !important;
+        padding: 20px !important;
+        background: #fff !important;
+        color: #000 !important;
         &:before {
-            border: 8px solid transparent;
-            border-top-color: #fff;
-            position: absolute;
-            bottom: -16px;
-            right: 15px;
-            content: '';
+            border: 8px solid transparent !important;
+            border-top-color: #fff !important;
+            position: absolute !important;
+            bottom: -16px !important;
+            right: 15px !important;
+            content: '' !important;
         }
     }
 
     img {
-        min-width: 50px;
-        max-width: 50px;
-        min-height: 50px;
-        max-height: 50px;
-        border-radius: 50%;
-        object-fit: cover;
-        object-position: center center;
+        min-width: 50px !important;
+        max-width: 50px !important;
+        min-height: 50px !important;
+        max-height: 50px !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
     }
 
     p {
-        margin: 0;
-        text-align: left;
-        font-size: 14px;
-        padding-inline-start: 20px;
-        padding-left: 20px;
+        margin: 0 !important;
+        text-align: left !important;
+        font-size: 14px !important;
+        padding-inline-start: 20px !important;
+        padding-left: 20px !important;
     }
 }

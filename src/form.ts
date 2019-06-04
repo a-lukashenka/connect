@@ -1,14 +1,14 @@
-import { CHAT_TEMPLATE } from './templates/chat-html';
-import { CHAT_BUTTON_TEMPLATE } from './templates/chat-button-html';
-import { SUBMIT_FORM_TEMPLATE } from './templates/submit-form-html';
-import { SUCCESS_FORM_TEMPLATE } from './templates/success-form-html';
-import { WELCOME_MESSAGE_TEMPLATE } from './templates/welcom-message-html';
 import { IViaConnectForm, IViaConnectSettings } from './models/interfaces/via-connect';
-import { AGREEMENT, BASE_SETTINGS } from './models/constants/base-settings';
-import { StorageItem } from './models/enums/storage-item';
-import { Http } from './http';
 import { DDM } from './ddm';
 import { Attribute } from './models/classes/attribute';
+import { AGREEMENT, BASE_SETTINGS } from './models/constants/base-settings';
+import { StorageItem } from './models/enums/storage-item';
+import { SUCCESS_FORM_TEMPLATE } from './templates/success-form-html';
+import { SUBMIT_FORM_TEMPLATE } from './templates/submit-form-html';
+import { WELCOME_MESSAGE_TEMPLATE } from './templates/welcom-message-html';
+import { CHAT_BUTTON_TEMPLATE } from './templates/chat-button-html';
+import { CHAT_TEMPLATE } from './templates/chat-html';
+import { Http } from './http';
 
 export class Form {
     config: IViaConnectSettings;
@@ -16,20 +16,32 @@ export class Form {
     isGreetingShouldShow: boolean = true;
     isNewRequest: boolean = true;
     formData: IViaConnectForm;
-    iframe: any;
 
     formContainer: HTMLElement;
     chatContainer: HTMLElement;
     greetingContainer: HTMLElement;
     buttonContainer: HTMLElement;
+    iframe: HTMLElement;
 
     constructor(config: IViaConnectSettings) {
         this.config = config;
-        this.iframe = document.createElement('iframe');
     }
 
     createForm(): void {
         const body = document.body;
+        // this.iframe = DDM.create('iframe', [
+        //     new Attribute('src', 'http://localhost:8000'),
+        //     new Attribute('allowtransparency', 'true'),
+        //     new Attribute('frameborder', '0'),
+        //     new Attribute('scrolling', 'no'),
+        // ]);
+        // DDM.append(body, this.iframe);
+        // this.iframe.onload = () => {
+        //     if (this.config) {
+        //         this.iframe['contentWindow'].postMessage({type: 1, data: this.config}, '*')
+        //     }
+        //     window.addEventListener('message', (e) => console.log('PARENT', e));
+        // };
 
         this.chatContainer = DDM.create(
             'div', [new Attribute('id', 'via-connect')], CHAT_TEMPLATE,
@@ -70,8 +82,8 @@ export class Form {
         const img = DDM.get('via-connect__greeting-img');
         const body = DDM.get('via-connect__greeting-body');
 
-        DDM.setAttribute(img, new Attribute('src', this.config.welcomeMessage.icon ||
-            BASE_SETTINGS.welcomeMessage.icon));
+        DDM.setAttribute(img, [new Attribute('src', this.config.welcomeMessage.icon ||
+            BASE_SETTINGS.welcomeMessage.icon)]);
         const bodyText = DDM.createTextNode(this.config.welcomeMessage.message ||
             BASE_SETTINGS.welcomeMessage.message);
 
@@ -223,21 +235,29 @@ export class Form {
     setButtonStyle(): void {
         const button = DDM.get('via-connect-btn');
 
-        button.style.color = this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor;
-        button.style.background = this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor;
+        DDM.setAttribute(button, [
+            new Attribute('style',
+                `background: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor} !important;
+                color: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor} !important`),
+        ]);
     }
 
     setSubmitButtonStyle(): void {
         const button = DDM.get('via-connect__submit-btn');
 
-        button.style.background = this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor;
-        button.style.color = this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor;
+        DDM.setAttribute(button, [
+            new Attribute('style',
+                `background: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor} !important;
+                color: ${this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor} !important`),
+        ]);
     }
 
     setHeaderStyle(): void {
-        const button = DDM.get('via-connect__header-wrapper');
-
-        button.style.background = this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor;
-        button.style.color = this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor;
+        const header = DDM.get('via-connect__header-wrapper');
+        DDM.setAttribute(header, [
+            new Attribute('style',
+                `background: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor} !important;
+                color: ${this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor} !important`),
+        ]);
     }
 }

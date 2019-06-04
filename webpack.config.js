@@ -30,7 +30,7 @@ module.exports = [
                         {
                             loader: 'style-loader',
                             options: {
-                                attrs: { 'via-connect-style': 'via-connect-style' }
+                                attrs: { 'scoped': 'scoped' }
                             }
                         },
                         // 'style-loader',

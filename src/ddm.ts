@@ -3,9 +3,7 @@ import { Attribute } from './models/classes/attribute';
 export class DDM {
     static create(elName: string, attr: Attribute[], innerHtml?: string): HTMLElement {
         const element = document.createElement(elName);
-        attr.forEach(attr => {
-            DDM.setAttribute(element, attr);
-        });
+        DDM.setAttribute(element, attr);
         if (innerHtml) {
             DDM.setHtml(element, innerHtml);
         }
@@ -20,8 +18,10 @@ export class DDM {
         element.parentNode.removeChild(element);
     }
 
-    static setAttribute(element: HTMLElement, attr: Attribute): void {
-        element.setAttribute(attr.name, attr.value);
+    static setAttribute(element: HTMLElement, attr: Attribute[]): void {
+        attr.forEach(attr => {
+            element.setAttribute(attr.name, attr.value);
+        });
     }
 
     static createTextNode(value: string): Text {

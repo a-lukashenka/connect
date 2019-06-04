@@ -1,66 +1,66 @@
 @import './varibles';
 
 #via-connect {
-  position: fixed;
-  right: 20px;
-  bottom: 80px;
-  -webkit-transition: .2s linear;
-  transition: .2s linear;
-  transition-property: visibility, opacity, bottom;
-  backface-visibility: hidden;
-  display: block;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  max-width: 300px;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 5px 50px rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
-  overflow: hidden;
-  visibility: hidden;
-  opacity: 0;
+  position: fixed !important;
+  right: 20px !important;
+  bottom: 80px !important;
+  -webkit-transition: .2s linear !important;
+  transition: .2s linear !important;
+  transition-property: visibility, opacity, bottom !important;
+  backface-visibility: hidden !important;
+  display: block !important;
+  box-sizing: border-box !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 300px !important;
+  box-shadow: 0 10px 20px rgba(0,0,0,.2) !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 
 
   &.via-connect__visible {
-    opacity: 1;
-    bottom: 90px;
-    z-index: 1000;
-    visibility: visible;
+    opacity: 1 !important;
+    bottom: 90px !important;
+    z-index: 1000 !important;
+    visibility: visible !important;
   }
 
   .via-connect__form-body {
-    padding: 0 15px 15px;
-    background: $gray3;
-    max-height: 500px;
-    overflow: auto;
-    position: relative;
+    padding: 0 15px 15px !important;
+    background: $gray3 !important;
+    max-height: 500px !important;
+    overflow: auto !important;
+    position: relative !important;
 
     .via-connect__loading {
-      left: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.52);
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      left: 0 !important;
+      bottom: 0 !important;
+      background: rgba(0, 0, 0, 0.52) !important;
+      width: 100% !important;
+      height: 100% !important;
+      position: absolute !important;
+      z-index: 10 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
 
       span {
-        display: inline-block;
-        width: 30px;
-        height: 30px;
-        border: 3px solid rgba(255, 255, 255, .3);
-        border-radius: 50%;
-        border-top-color: #fff;
-        animation: spin .75s ease-in-out infinite;
+        display: inline-block !important;
+        width: 30px !important;
+        height: 30px !important;
+        border: 3px solid rgba(255, 255, 255, .3) !important;
+        border-radius: 50% !important;
+        border-top-color: #fff !important;
+        animation: spin .75s ease-in-out infinite !important;
       }
     }
 
     .via-connect__form {
       .via-connect__agreement {
-        text-align: center;
-        color: $p-color;
+        text-align: center !important;
+        color: $p-color !important;
         margin-top: 10px !important;
         padding: 0 20px !important;
         font-size: 10px !important;
@@ -68,148 +68,148 @@
     }
 
     .via-connect__submit {
-      display: block;
-      margin: 10px auto 0;
-      height: 35px;
-      width: 80px;
+      display: block !important;
+      margin: 10px auto 0 !important;
+      height: 35px !important;
+      width: 80px !important;
 
       a {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        align-items: center;
-        justify-content: center;
+        display: flex !important;
+        width: 100% !important;
+        height: 100% !important;
+        align-items: center !important;
+        justify-content: center !important;
       }
     }
   }
 
   .via-connect__header, .via-connect__footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 15px !important;
 
     p {
-      margin: 0;
-      padding: 0;
+      margin: 0 !important;
+      padding: 0 !important;
     }
 
     svg {
-      margin-inline-end: 10px;
-      margin-right: 10px;
+      margin-inline-end: 10px !important;
+      margin-right: 10px !important;
     }
   }
 
   .via-connect__header {
     background: $main-color;
-    color: #fff;
+    color: #fff !important;
 
     p {
       font-size: 14px !important;
-      color: inherit;
+      color: inherit !important;
     }
 
     .via-connect__svg {
-      fill: currentColor;
+      fill: currentColor !important;
     }
 
 
   }
 
   .via-connect__footer {
-    background: #fff;
-    padding: 10px;
+    background: #fff !important;
+    padding: 10px !important;
 
     p {
-      color: $p-color;
-      font-size: 10px;
+      color: $p-color !important;
+      font-size: 10px !important;
     }
   }
 
   .via-connect__message-wrapper {
-    padding-top: 15px;
+    padding-top: 15px !important;
 
     h5 {
-      margin: 0 0 10px;
-      color: $gray1;
+      margin: 0 0 10px !important;
+      color: $gray1 !important;
     }
 
     p {
-      margin: 0;
-      padding: 0;
-      font-size: 12px;
+      margin: 0 !important;
+      padding: 0 !important;
+      font-size: 12px !important;
     }
 
     .via-connect__status {
-      text-align: right;
-      font-size: 10px;
-      display: block;
-      color: $gray2;
-      margin-top: 5px;
+      text-align: right !important;
+      font-size: 10px !important;
+      display: block !important;
+      color: $gray2 !important;
+      margin-top: 5px !important;
     }
 
     .via-connect__message {
-      padding: 15px;
-      background: #fff;
-      overflow: hidden;
-      color: #828385;
-      text-align: start;
-      text-align: left;
+      padding: 15px !important;
+      background: #fff !important;
+      overflow: hidden !important;
+      color: #828385 !important;
+      text-align: start !important;
+      text-align: left !important;
 
       input, textarea {
-        width: 100%;
-        font-size: 14px;
+        width: 100% !important;
+        font-size: 14px !important;
       }
 
       &.via-connect__right {
-        margin-inline-start: 20px;
-        border-radius: 15px 15px 0 15px;
-        background: $blue1;
+        margin-inline-start: 20px !important;
+        border-radius: 15px 15px 0 15px !important;
+        background: $blue1 !important;
       }
 
       &.via-connect__left {
-        margin-inline-end: 20px;
-        border-radius: 15px 15px 15px 0;
-        background: $blue2;
+        margin-inline-end: 20px !important;
+        border-radius: 15px 15px 15px 0 !important;
+        background: $blue2 !important;
       }
 
       &.via-connect__clear {
-        background-color: #fff;
+        background-color: #fff !important;
       }
 
       &__header {
-        text-align: center;
-        color: $main-color;
+        text-align: center !important;
+        color: $main-color !important;
       }
 
       &__body {
-        text-align: center;
+        text-align: center !important;
 
         h3 {
-          margin: 0 0 10px;
-          font-weight: 600;
+          margin: 0 0 10px !important;
+          font-weight: 600 !important;
           font-size: 14px !important;
         }
 
         p {
-          color: $gray2;
-          margin-bottom: 10px;
+          color: $gray2 !important;
+          margin-bottom: 10px !important;
         }
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: #fff;
-        margin: 13px -15px -15px;
-        padding: 15px;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background-color: #fff !important;
+        margin: 13px -15px -15px !important;
+        padding: 15px !important;
       }
     }
   }
 
   @keyframes spin {
     to {
-      -webkit-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg) !important;
     }
   }
 }
