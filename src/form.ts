@@ -82,7 +82,8 @@ export class Form {
         const img = DDM.get('via-connect__greeting-img');
         const body = DDM.get('via-connect__greeting-body');
 
-        DDM.setAttribute(img, [new Attribute('src', this.config.welcomeMessage.icon ||
+        DDM.setAttribute(img, [new Attribute('src', this.config.welcomeMessage.icon ?
+            `${CONFIG.s3Url}/${this.config.welcomeMessage.icon}` :
             BASE_SETTINGS.welcomeMessage.icon)]);
         const bodyText = DDM.createTextNode(this.config.welcomeMessage.message ||
             BASE_SETTINGS.welcomeMessage.message);
@@ -216,13 +217,13 @@ export class Form {
 
     toggleGreetingView(close?: boolean): void {
         if (!this.isGreetingShouldShow ||
-            sessionStorage.getItem(StorageItem.GreetingMessage)) {
+            localStorage.getItem(StorageItem.GreetingMessage)) {
             return;
         }
         if (close) {
             this.isGreetingShouldShow = false;
             this.greetingContainer.classList.toggle('via-connect__visible', false);
-            sessionStorage.setItem(StorageItem.GreetingMessage, 'true');
+            localStorage.setItem(StorageItem.GreetingMessage, `{disabled: true, date: ${new Date()}`);
             return;
         }
         setTimeout(() => {
@@ -259,5 +260,13 @@ export class Form {
                 `background: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor} !important;
                 color: ${this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor} !important`),
         ]);
+    }
+
+    parse(value: string): object {
+        try {
+            return JSON.parse(value);
+        } catch (e) {
+
+        }
     }
 }

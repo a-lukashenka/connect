@@ -27,13 +27,7 @@ module.exports = [
                 {
                     test: [/.css$|.scss$/],
                     use: [
-                        {
-                            loader: 'style-loader',
-                            options: {
-                                attrs: { 'scoped': 'scoped' }
-                            }
-                        },
-                        // 'style-loader',
+                        'style-loader',
                         'css-loader',
                         {
                             loader: 'postcss-loader',
@@ -82,6 +76,7 @@ module.exports = [
             new DefinePlugin({
                 CONFIG: JSON.stringify({
                     apiUrl: env.API_URL,
+                    s3Url: env.S3_URL,
                 }),
             }),
         ]

@@ -12,6 +12,7 @@
     "autoprefixer": "^9.5.1",
     "classlist-polyfill": "^1.2.0",
     "css-loader": "^2.1.1",
+    "dayjs": "^1.8.14",
     "dotenv": "^8.0.0",
     "es6-promise-promise": "^1.0.0",
     "light-server": "^2.6.2",
