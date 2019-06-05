@@ -9,6 +9,7 @@ import { WELCOME_MESSAGE_TEMPLATE } from './templates/welcom-message-html';
 import { CHAT_BUTTON_TEMPLATE } from './templates/chat-button-html';
 import { CHAT_TEMPLATE } from './templates/chat-html';
 import { Http } from './http';
+import * as dayJs from 'dayjs';
 
 export class Form {
     config: IViaConnectSettings;
@@ -216,14 +217,16 @@ export class Form {
     }
 
     toggleGreetingView(close?: boolean): void {
-        if (!this.isGreetingShouldShow ||
-            localStorage.getItem(StorageItem.GreetingMessage)) {
+        if (!this.isGreetingShouldShow || !this.config.welcomeMessage.frequency ||
+            (localStorage.getItem(StorageItem.GreetingMessage) &&
+                dayJs().subtract(this.config.welcomeMessage.frequency, 'day')
+                    .diff(dayJs(localStorage.getItem(StorageItem.GreetingMessage)), 'millisecond') < 0)) {
             return;
         }
-        if (close) {
+        if (close && this.isGreetingShouldShow) {
             this.isGreetingShouldShow = false;
             this.greetingContainer.classList.toggle('via-connect__visible', false);
-            localStorage.setItem(StorageItem.GreetingMessage, `{disabled: true, date: ${new Date()}`);
+            localStorage.setItem(StorageItem.GreetingMessage, `${new Date()}`);
             return;
         }
         setTimeout(() => {

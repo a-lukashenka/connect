@@ -17,6 +17,7 @@ export interface IViaConnectTheme {
 export interface IViaConnectWelcomeMessage {
     message: string;
     icon: string;
+    frequency?: number;
 }
 
 export interface IViaConnectDialogSettings {
