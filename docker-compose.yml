@@ -1,0 +1,13 @@
+connect:
+  image: node
+  container_name: connect
+  restart: always
+  volumes:
+    - ~/via/connect:/var/www/app
+  working_dir: "/var/www/app"
+  environment:
+    - VIRTUAL_HOST=connect.viacustomer.com
+    - VIRTUAL_PORT=8000
+  command: bash -c "npm i local-web-server -g && ws"
+  expose:
+    - "8000"

@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "build": "cross-env NODE_ENV=prod node ./environment/env.js && webpack --colors",
+    "build:prod": "cross-env NODE_ENV=prod node ./environment/env.js && webpack --colors",
+    "build:stage": "cross-env NODE_ENV=stage node ./environment/env.js && webpack --colors",
     "watch": "cross-env NODE_ENV=dev node ./environment/env.js && webpack --colors --watch",
     "server": "light-server -s . -c bs-config.json"
   },
