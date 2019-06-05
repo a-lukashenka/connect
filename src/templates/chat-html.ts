@@ -2,13 +2,13 @@
 export const CHAT_TEMPLATE = '' +
     '<div id="via-connect__header-wrapper" class="via-connect__header cleanslate">' +
     '  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">' +
-    '   <path class="svg" fill="#fff" d="M0 1v16.981h4v5.019l7-5.019h13v-16.981h-24zm7 10c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5zm5 0c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5zm5 0c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5z"/></svg>' +
+    '   <path class="via-connect__svg" fill="#fff" d="M0 1v16.981h4v5.019l7-5.019h13v-16.981h-24zm7 10c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5zm5 0c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5zm5 0c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5z"/></svg>' +
     '   <p id="via-connect__banner"></p>' +
     '</div>' +
     '<div id="via-connect__form-body" class="via-connect__form-body cleanslate">' +
     '<div id="via-connect__form-body_loading"><span></span></div>' +
     '  <div class="via-connect__message-wrapper cleanslate">' +
-    '    <div class="via-connect__message via-connect__left">' +
+    '    <div id="via-connect__animate" class="via-connect__message via-connect__left">' +
     '      <p id="via-connect__initial-message"></p>' +
     '    </div>' +
     '  </div>' +

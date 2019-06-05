@@ -14,6 +14,10 @@ export class DDM {
         return document.getElementById(id);
     }
 
+    static getAll(query: string): NodeListOf<Element> {
+        return document.querySelectorAll(query);
+    }
+
     static remove(element: HTMLElement): void {
         element.parentNode.removeChild(element);
     }

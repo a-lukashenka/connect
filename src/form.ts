@@ -156,6 +156,7 @@ export class Form {
     setSuccessMessage(): void {
         this.setCustomerMessage();
         this.setCompanyMessage();
+        this.animateMessages();
     }
 
     setCustomerMessage(): void {
@@ -209,6 +210,7 @@ export class Form {
         setTimeout(() => {
             this.chatContainer.classList.toggle('via-connect__visible', this.isChatVisible);
         }, 0);
+        this.animateMessages();
     }
 
     toggleLoader(state: boolean): void {
@@ -265,11 +267,10 @@ export class Form {
         ]);
     }
 
-    parse(value: string): object {
-        try {
-            return JSON.parse(value);
-        } catch (e) {
-
-        }
+    animateMessages(): void {
+        const animatedElements = DDM.getAll('[id=\'via-connect__animate\']');
+        animatedElements.forEach(el => {
+            el.classList.toggle('via-connect__animate', this.isChatVisible);
+        });
     }
 }

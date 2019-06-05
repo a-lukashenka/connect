@@ -166,12 +166,22 @@
         margin-inline-start: 20px !important;
         border-radius: 15px 15px 0 15px !important;
         background: $blue1 !important;
+        transform-origin: bottom right  !important;
+        transform: scale(1) !important;
+        &.via-connect__animate {
+          animation: growBox .5s ease forwards;
+        }
       }
 
       &.via-connect__left {
         margin-inline-end: 20px !important;
         border-radius: 15px 15px 15px 0 !important;
         background: $blue2 !important;
+        transform-origin: bottom left  !important;
+        transform: scale(1) !important;
+        &.via-connect__animate {
+          animation: growBox .5s ease forwards;
+        }
       }
 
       &.via-connect__clear {
@@ -211,6 +221,17 @@
   @keyframes spin {
     to {
       -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes growBox {
+    from {
+      opacity: 0;
+      transform: scale(0);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
     }
   }
 }
