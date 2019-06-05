@@ -55,7 +55,7 @@ module.exports = [
         },
 
         output: {
-            filename: 'main.js',
+            filename: 'via_chat.js',
             path: path.resolve(__dirname, 'dist'),
             publicPath: '/dist/'
         },
