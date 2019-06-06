@@ -11,7 +11,7 @@ export const CHAT_TEMPLATE = '' +
     '</div>' +
     '<div id="via-connect__form-body" class="via-connect__form-body cleanslate">' +
     '<div id="via-connect__form-body_loading"><span></span></div>' +
-    '  <div class="via-connect__message-wrapper cleanslate">' +
+    '  <div class="via-connect__message-wrapper via-connect__no-flex cleanslate">' +
     '    <div id="via-connect__animate" class="via-connect__message via-connect__left">' +
     '      <p id="via-connect__initial-message"></p>' +
     '    </div>' +

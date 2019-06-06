@@ -48,14 +48,12 @@ export class Form {
         this.chatContainer = DDM.create(
             'div', [new Attribute('id', ContainerId.CHAT_MAIN)], CHAT_TEMPLATE,
         );
-        this.chatContainer.classList.toggle('via-connect__mobile', this.isMobile);
         this.buttonContainer = DDM.create(
             'div', [new Attribute('id', ContainerId.CHAT_BUTTON_MAIN)], CHAT_BUTTON_TEMPLATE,
         );
         this.greetingContainer = DDM.create(
             'div', [new Attribute('id', ContainerId.CHAT_GREETING_MAIN)], WELCOME_MESSAGE_TEMPLATE,
         );
-        this.greetingContainer.classList.toggle('via-connect__mobile', this.isMobile);
 
         DDM.append(body, this.buttonContainer);
         DDM.append(body, this.chatContainer);
@@ -308,9 +306,5 @@ export class Form {
         animatedElements.forEach(el => {
             el.classList.toggle('via-connect__animate', this.isChatVisible);
         });
-    }
-
-    get isMobile(): boolean {
-        return window.innerWidth <= 700 ? true : false;
     }
 }

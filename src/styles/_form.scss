@@ -20,6 +20,10 @@
   opacity: 0 !important;
   z-index: 1000 !important;
 
+  .via-connect__no-flex {
+    flex: none !important;
+  }
+
   &.via-connect__visible {
     opacity: 1 !important;
     bottom: 90px !important;
@@ -29,7 +33,7 @@
   .via-connect__form-body {
     display: flex !important;
     flex-direction: column;
-    padding: 0 15px 15px !important;
+    padding: 15px 15px 0 !important;
     background: $gray3 !important;
     max-height: 500px !important;
     overflow: auto !important;
@@ -72,10 +76,14 @@
       }
 
       .via-connect__form_btn-group {
-        flex: 1 auto;
+        flex: 1 0 auto;
+        margin-bottom: -15px !important;
         display: flex !important;
         flex-direction: column;
         justify-content: flex-end;
+         button {
+           margin-bottom: 15px !important;
+         }
       }
     }
 
@@ -146,22 +154,27 @@
     }
   }
 
-  &.via-connect__mobile {
-    bottom: 0 !important;
+  @media only screen and (max-width: 768px) {
     right: 0 !important;
     max-width: 100vw !important;
     min-width: 100vw !important;
     min-height: 100vh;
     border-radius: 0 !important;
 
+    &.via-connect__visible {
+      bottom: 0 !important;
+    }
+
     .via-connect__form-body {
       min-height: calc(100vh - 81px) !important;
       height: calc(100vh - 81px) !important;
     }
 
-    .via-connect__close_svg {
-      opacity: 1 !important;
-      visibility: visible !important;
+    .via-connect__header {
+      .via-connect__close_svg {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
     }
   }
 
@@ -177,7 +190,7 @@
   }
 
   .via-connect__message-wrapper {
-    padding-top: 15px !important;
+    padding-bottom: 15px !important;
 
     h5 {
       margin: 0 0 10px !important;
@@ -266,6 +279,9 @@
         margin: 13px -15px -15px !important;
         padding: 15px !important;
       }
+    }
+    .via-connect__no-flex {
+      flex: none !important;
     }
   }
 
