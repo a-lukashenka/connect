@@ -10,6 +10,7 @@ import { CHAT_BUTTON_TEMPLATE } from './templates/chat-button-html';
 import { CHAT_TEMPLATE } from './templates/chat-html';
 import { Http } from './http';
 import * as dayJs from 'dayjs';
+import { ContainerId } from './models/enums/container-id';
 
 export class Form {
     config: IViaConnectSettings;
@@ -45,13 +46,13 @@ export class Form {
         // };
 
         this.chatContainer = DDM.create(
-            'div', [new Attribute('id', 'via-connect')], CHAT_TEMPLATE,
+            'div', [new Attribute('id', ContainerId.CHAT_MAIN)], CHAT_TEMPLATE,
         );
         this.buttonContainer = DDM.create(
-            'div', [new Attribute('id', 'via-connect-btn-container')], CHAT_BUTTON_TEMPLATE,
+            'div', [new Attribute('id', ContainerId.CHAT_BUTTON_MAIN)], CHAT_BUTTON_TEMPLATE,
         );
         this.greetingContainer = DDM.create(
-            'div', [new Attribute('id', 'via-connect-greeting-container')], WELCOME_MESSAGE_TEMPLATE,
+            'div', [new Attribute('id', ContainerId.CHAT_GREETING_MAIN)], WELCOME_MESSAGE_TEMPLATE,
         );
 
         DDM.append(body, this.buttonContainer);
@@ -68,6 +69,17 @@ export class Form {
             this.toggleGreetingView(true);
         });
 
+        document.addEventListener('click', (e: any) => {
+            if (
+                !DDM.get(ContainerId.CHAT_MAIN).contains(e.target) &&
+                !DDM.get(ContainerId.CHAT_BUTTON_MAIN).contains(e.target) &&
+                this.isChatVisible
+            ) {
+                this.isChatVisible = false;
+                this.toggleChatView();
+            }
+        });
+
         this.setChatView();
         this.setTitles();
         this.setGreetingMessage();
@@ -80,8 +92,8 @@ export class Form {
 
     setGreetingMessage(): void {
         if (!this.greetingContainer) return;
-        const img = DDM.get('via-connect__greeting-img');
-        const body = DDM.get('via-connect__greeting-body');
+        const img = DDM.get(ContainerId.CHAT_GREETING_IMAGE);
+        const body = DDM.get(ContainerId.CHAT_GREETING_BODY);
 
         DDM.setAttribute(img, [new Attribute('src', this.config.welcomeMessage.icon ?
             `${CONFIG.s3Url}/${this.config.welcomeMessage.icon}` :
@@ -93,7 +105,7 @@ export class Form {
     }
 
     setChatView(): void {
-        this.formContainer = DDM.get('via-connect__form-body');
+        this.formContainer = DDM.get(ContainerId.CHAT_MAIN_FORM_BODY);
 
         if (this.isNewRequest) {
             this.clearSuccessContainer();
@@ -108,13 +120,13 @@ export class Form {
         if (!this.formContainer) return;
         DDM.setHtml(this.formContainer, SUBMIT_FORM_TEMPLATE);
 
-        const agreementTitle = DDM.get('via-connect__agreement');
+        const agreementTitle = DDM.get(ContainerId.CHAT_MAIN_FORM_AGREEMENT);
         const agreementText = DDM.createTextNode(AGREEMENT);
         DDM.append(agreementTitle, agreementText);
 
         this.setSubmitButtonStyle();
 
-        const form = DDM.get('via-connect__form');
+        const form = DDM.get(ContainerId.CHAT_MAIN_FORM);
         form.onsubmit = (e: Event) => {
             e.preventDefault();
             this.formData = {
@@ -142,7 +154,7 @@ export class Form {
     }
 
     clearFormContainer(): void {
-        const form = DDM.get('via-connect__form');
+        const form = DDM.get(ContainerId.CHAT_MAIN_FORM);
         if (!form) return;
         DDM.remove(form);
     }
@@ -160,8 +172,8 @@ export class Form {
     }
 
     setCustomerMessage(): void {
-        const phone = DDM.get('via-connect__customer-phone');
-        const message = DDM.get('via-connect__customer-message');
+        const phone = DDM.get(ContainerId.CHAT_MAIN_FORM_CUSTOMER_PHONE);
+        const message = DDM.get(ContainerId.CHAT_MAIN_FORM_CUSTOMER_MESSAGE);
 
         const phoneText = DDM.createTextNode(this.formData.phone);
         const messageText = DDM.createTextNode(this.formData.message);
@@ -171,9 +183,9 @@ export class Form {
     }
 
     setCompanyMessage(): void {
-        const phone = DDM.get('via-connect__success_phone');
-        const title = DDM.get('via-connect__success_title');
-        const body = DDM.get('via-connect__success_message');
+        const phone = DDM.get(ContainerId.CHAT_MAIN_FORM_SUCCESS_PHONE);
+        const title = DDM.get(ContainerId.CHAT_MAIN_FORM_SUCCESS_TITLE);
+        const body = DDM.get(ContainerId.CHAT_MAIN_FORM_SUCCESS_MESSAGE);
 
         const phoneText = DDM.createTextNode(this.config.dialogSettings.successMessage.phone ||
             BASE_SETTINGS.dialogSettings.successMessage.phone);
@@ -188,14 +200,14 @@ export class Form {
     }
 
     clearSuccessContainer(): void {
-        const success = DDM.get('via-connect_success');
+        const success = DDM.get(ContainerId.CHAT_MAIN_FORM_SUCCESS);
         if (!success) return;
         DDM.remove(success)
     }
 
     setTitles(): void {
-        const bannerTitle = DDM.get('via-connect__banner');
-        const initialMessageTitle = DDM.get('via-connect__initial-message');
+        const bannerTitle = DDM.get(ContainerId.CHAT_MAIN_BANNER);
+        const initialMessageTitle = DDM.get(ContainerId.CHAT_MAIN_SPEECH);
 
         const bannerTitleText = DDM.createTextNode(this.config.dialogSettings.title ||
             BASE_SETTINGS.dialogSettings.title);
@@ -214,7 +226,7 @@ export class Form {
     }
 
     toggleLoader(state: boolean): void {
-        const loader = DDM.get('via-connect__form-body_loading');
+        const loader = DDM.get(ContainerId.CHAT_MAIN_FORM_LOADING);
         loader.classList.toggle('via-connect__loading', state);
     }
 
@@ -239,8 +251,8 @@ export class Form {
     }
 
     setButtonStyle(): void {
-        const button = DDM.get('via-connect-btn');
-        const icon = DDM.get('via-connect-btn__svg');
+        const button = DDM.get(ContainerId.CHAT_BUTTON_MAIN_BODY);
+        const icon = DDM.get(ContainerId.CHAT_BUTTON_MAIN_ICON);
 
         DDM.setAttribute(button, [
             new Attribute('style',
@@ -254,7 +266,7 @@ export class Form {
     }
 
     setSubmitButtonStyle(): void {
-        const button = DDM.get('via-connect__submit-btn');
+        const button = DDM.get(ContainerId.CHAT_MAIN_FORM_SUBMIT);
 
         DDM.setAttribute(button, [
             new Attribute('style',
@@ -264,7 +276,7 @@ export class Form {
     }
 
     setHeaderStyle(): void {
-        const header = DDM.get('via-connect__header-wrapper');
+        const header = DDM.get(ContainerId.CHAT_MAIN_FORM_HEADER);
         DDM.setAttribute(header, [
             new Attribute('style',
                 `background: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor} !important;
