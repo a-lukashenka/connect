@@ -18,7 +18,7 @@
     &:before {
       border-radius: $circle-size !important;
       border: $outside-circle-border solid !important;
-      border-color: inherit !important;
+      border-color: currentColor !important;
       box-shadow: 0 0 15px rgba(0, 255, 204, 0.15), 0 0 15px rgba(0, 255, 204, 0.15) inset !important;
       content: "" !important;
       display: block !important;

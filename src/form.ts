@@ -240,11 +240,16 @@ export class Form {
 
     setButtonStyle(): void {
         const button = DDM.get('via-connect-btn');
+        const icon = DDM.get('via-connect-btn__svg');
 
         DDM.setAttribute(button, [
             new Attribute('style',
                 `background: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor} !important;
                 color: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor} !important`),
+        ]);
+        DDM.setAttribute(icon, [
+            new Attribute('style',
+                `fill: ${this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor} !important`),
         ]);
     }
 
