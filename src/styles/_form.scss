@@ -158,16 +158,26 @@
     right: 0 !important;
     max-width: 100vw !important;
     min-width: 100vw !important;
-    min-height: 100vh;
+    min-height: 100% !important;
     border-radius: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    .via-connect__container__wrap {
+      display: flex !important;
+      flex-direction: column !important;
+      flex: 1 0 auto !important;
+      height: 100px;
+    }
 
     &.via-connect__visible {
       bottom: 0 !important;
     }
 
     .via-connect__form-body {
-      min-height: calc(100vh - 81px) !important;
-      height: calc(100vh - 81px) !important;
+      flex: 1 0 auto;
+      min-height: 100% !important;
+      max-height: none !important;
+      height: 100% !important;
     }
 
     .via-connect__header {

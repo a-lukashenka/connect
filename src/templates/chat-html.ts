@@ -1,5 +1,5 @@
 // tslint:disable: max-line-length
-export const CHAT_TEMPLATE = '' +
+export const CHAT_TEMPLATE = '<div class="via-connect__container__wrap">' +
     '<div id="via-connect__header-wrapper" class="via-connect__header cleanslate">' +
     '<div class="via-connect__header_title">' +
     '    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">' +
@@ -23,4 +23,5 @@ export const CHAT_TEMPLATE = '' +
     '   <path d="M31.9629 3.02872L15.6048 20.3681L6.96202 16.3172L0.507788 5.4517C-0.938851 3.02872 0.87872 0 3.772 0H28.2536C29.3664 0 30.2937 0.416449 30.9614 1.09791C31.4807 1.6658 31.8145 2.3094 31.9629 3.02872Z" fill="#778CFD"/>' +
     '   </svg>' +
     '  <a href="https://viacustomer.com" target="_blank" id="via-connect__footer-title">Powered by via</a>' +
+    '</div>' +
     '</div>';

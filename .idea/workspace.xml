@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d87426e1-86d2-4231-8544-770b4acdde18" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/form.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/form.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/_form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_form.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/_greeting-message.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_greeting-message.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/_material.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_material.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/_reset.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_reset.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/templates/chat-html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/chat-html.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/submit-form-html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/submit-form-html.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,10 +16,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/form.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
+            <state relative-caret-position="73">
               <caret line="286" lean-forward="true" selection-start-line="286" selection-end-line="286" />
               <folding>
                 <element signature="e#0#87#0" expanded="true" />
@@ -67,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/chat-html.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+            <state relative-caret-position="20">
+              <caret line="1" column="70" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -91,11 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/styles/_form.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="82" column="34" lean-forward="true" selection-start-line="82" selection-start-column="34" selection-end-line="82" selection-end-column="34" />
+            <state relative-caret-position="545">
+              <caret line="178" column="23" selection-start-line="178" selection-start-column="22" selection-end-line="178" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -154,11 +148,11 @@
       <find>group</find>
       <find>0 15</find>
       <find>700</find>
-      <find>body</find>
-      <find>log</find>
       <find>-8</find>
       <find>margin-left: 4px !important;</find>
       <find>margin-left: 4px !important;</find>
+      <find>log</find>
+      <find>body</find>
     </findStrings>
     <replaceStrings>
       <replace>via-connect</replace>
@@ -221,13 +215,13 @@
         <option value="$PROJECT_DIR$/src/templates/welcom-message-html.ts" />
         <option value="$PROJECT_DIR$/src/styles/_chat-button.scss" />
         <option value="$PROJECT_DIR$/src/models/enums/container-id.ts" />
-        <option value="$PROJECT_DIR$/src/templates/chat-html.ts" />
         <option value="$PROJECT_DIR$/src/templates/submit-form-html.ts" />
         <option value="$PROJECT_DIR$/src/styles/_greeting-message.scss" />
-        <option value="$PROJECT_DIR$/src/styles/_form.scss" />
         <option value="$PROJECT_DIR$/src/form.ts" />
         <option value="$PROJECT_DIR$/src/styles/_material.scss" />
         <option value="$PROJECT_DIR$/src/styles/_reset.scss" />
+        <option value="$PROJECT_DIR$/src/templates/chat-html.ts" />
+        <option value="$PROJECT_DIR$/src/styles/_form.scss" />
       </list>
     </option>
   </component>
@@ -434,12 +428,12 @@
       <workItem from="1559629287369" duration="11907000" />
       <workItem from="1559643973095" duration="14222000" />
       <workItem from="1559715408331" duration="2056000" />
-      <workItem from="1559802479057" duration="18286000" />
+      <workItem from="1559802479057" duration="20321000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165463000" />
+    <option name="totallyTimeSpent" value="167498000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1136" extended-state="6" />
@@ -703,24 +697,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/submit-form-html.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="126" selection-start-line="2" selection-start-column="126" selection-end-line="2" selection-end-column="126" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/styles/_greeting-message.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
           <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/_form.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="82" column="34" lean-forward="true" selection-start-line="82" selection-start-column="34" selection-end-line="82" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -748,20 +728,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/chat-html.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/form.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
+        <state relative-caret-position="73">
           <caret line="286" lean-forward="true" selection-start-line="286" selection-end-line="286" />
           <folding>
             <element signature="e#0#87#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/submit-form-html.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="126" selection-start-line="2" selection-start-column="126" selection-end-line="2" selection-end-column="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/chat-html.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="70" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/_form.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="178" column="23" selection-start-line="178" selection-start-column="22" selection-end-line="178" selection-end-column="23" />
         </state>
       </provider>
     </entry>
