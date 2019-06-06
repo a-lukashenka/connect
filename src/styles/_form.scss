@@ -18,12 +18,11 @@
   overflow: hidden !important;
   visibility: hidden !important;
   opacity: 0 !important;
-
+  z-index: 1000 !important;
 
   &.via-connect__visible {
     opacity: 1 !important;
     bottom: 90px !important;
-    z-index: 1000 !important;
     visibility: visible !important;
   }
 

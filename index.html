@@ -27,18 +27,20 @@
 
 <body>
 VIA-Connect app based on TypeScript
+
 <script>
     (function (d, w, c) {
-        w.ViaToken = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJob3N0bmFtZSI6ImxvY2FsaG9zdCIsImxvY2F0aW9uSWQiOiI1YzFhM2QwOWU3YzI1NzFlZThjMTM4YTEiLCJpYXQiOjE1NTk3NDAwMDZ9.JGolQ_EX71HOAyU0RSBdZxJ0q5ZaXLVa5yg8xddVnMh2ut3l5jABQ5TG1AQBFsiONttiFyYhcty2mIFyg2zsUfmCWA4rQkT7J1gYHqt-mnCGQByoXE4-U-baIDVkFggIBVQqU6qCCgVkeqWLVrK1W4MFuc2e3G76mdt2utFBiFA';
+        w.ViaToken = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJob3N0bmFtZSI6InZpYS1jb25uZWN0LmdtbC5haXNub3ZhdGlvbnMuY29tIiwibG9jYXRpb25JZCI6IjVhZjk4YjhiMTZiMDhjMmY1ODcwY2JjMCIsImlhdCI6MTU1OTgwMjk3NH0.bwpk7EEBPUWj_Yb4rwydiWXib4eWGolZInjB9GjV7nRBhiIjeqgVaGH7c-HtI4IPKAkBPaci9SWCI-VVfjJUnB97LvU-pesEq1sEV2WLHU9DxjkFQRRe-s0b_xHNR7lwoGQoocEJaKAzYA-sXYmW-Jh44gEl2iYCbIIt_xUWDBA';
         var s = d.createElement('script');
         w[c] = w[c] || function () {
             (w[c].q = w[c].q || []).push(arguments);
         };
         s.async = true;
-        s.src = 'dist/via_chat.js';
+        s.src = 'http://via-connect.gml.aisnovations.com/via_chat.js';
         if (d.head) d.head.appendChild(s);
     })(document, window, 'ViaConnect');
 </script>
+
 </body>
 
 
