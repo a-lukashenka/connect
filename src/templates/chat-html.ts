@@ -1,9 +1,13 @@
 // tslint:disable: max-line-length
 export const CHAT_TEMPLATE = '' +
     '<div id="via-connect__header-wrapper" class="via-connect__header cleanslate">' +
-    '  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">' +
-    '   <path class="via-connect__svg" fill="#fff" d="M0 1v16.981h4v5.019l7-5.019h13v-16.981h-24zm7 10c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5zm5 0c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5zm5 0c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5z"/></svg>' +
-    '   <p id="via-connect__banner"></p>' +
+    '<div class="via-connect__header_title">' +
+    '    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">' +
+    '    <path class="via-connect__svg" fill="#fff" d="M0 1v16.981h4v5.019l7-5.019h13v-16.981h-24zm7 10c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5zm5 0c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5zm5 0c-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5s-.671 1.5-1.5 1.5z"/></svg>' +
+    '    <p id="via-connect__banner"></p>' +
+    '</div>' +
+    '   <svg id="via-connect__close_svg" class="via-connect__close_svg" xmlns="http://www.w3.org/2000/svg" width="24" height="11" viewBox="0 0 24 24">' +
+    '       <path class="via-connect__svg" fill="#797979" d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>' +
     '</div>' +
     '<div id="via-connect__form-body" class="via-connect__form-body cleanslate">' +
     '<div id="via-connect__form-body_loading"><span></span></div>' +

@@ -1,6 +1,7 @@
 export enum ContainerId {
     CHAT_MAIN = 'via-connect',
     CHAT_MAIN_FORM = 'via-connect__form',
+    CHAT_MAIN_FORM_HEADER_CLOSE = 'via-connect__close_svg',
     CHAT_MAIN_FORM_HEADER = 'via-connect__header-wrapper',
     CHAT_MAIN_FORM_SUBMIT = 'via-connect__submit-btn',
     CHAT_MAIN_FORM_LOADING = 'via-connect__form-body_loading',
@@ -20,4 +21,6 @@ export enum ContainerId {
     CHAT_GREETING_MAIN = 'via-connect-greeting-container',
     CHAT_GREETING_IMAGE = 'via-connect__greeting-img',
     CHAT_GREETING_BODY = 'via-connect__greeting-body',
+    CHAT_GREETING_CLOSE = 'via-connect__greeting-close',
+    FORM_INPUT_PHONE = 'via-connect__input_phone',
 }

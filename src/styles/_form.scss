@@ -13,7 +13,7 @@
   padding: 0 !important;
   margin: 0 !important;
   max-width: 300px !important;
-  box-shadow: 0 10px 20px rgba(0,0,0,.2) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .2) !important;
   border-radius: 6px !important;
   overflow: hidden !important;
   visibility: hidden !important;
@@ -27,6 +27,8 @@
   }
 
   .via-connect__form-body {
+    display: flex !important;
+    flex-direction: column;
     padding: 0 15px 15px !important;
     background: $gray3 !important;
     max-height: 500px !important;
@@ -57,12 +59,23 @@
     }
 
     .via-connect__form {
+      display: flex !important;
+      flex-direction: column;
+      flex: 1 auto;
+
       .via-connect__agreement {
         text-align: center !important;
         color: $p-color !important;
         margin-top: 10px !important;
         padding: 0 20px !important;
         font-size: 10px !important;
+      }
+
+      .via-connect__form_btn-group {
+        flex: 1 auto;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: flex-end;
       }
     }
 
@@ -103,16 +116,53 @@
     background: $main-color;
     color: #fff !important;
 
+    &_title {
+      display: flex !important;
+      flex: 1 auto !important;
+      justify-content: center !important;
+      margin-left: 24px !important;
+    }
+
     p {
       font-size: 14px !important;
       color: inherit !important;
+      text-overflow: ellipsis !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
     }
 
-    .via-connect__svg {
-      fill: currentColor !important;
+    svg {
+      min-width: 16px !important;
+      .via-connect__svg {
+        fill: currentColor !important;
+      }
     }
 
+    .via-connect__close_svg {
+      margin: 0 !important;
+      cursor: pointer !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+    }
+  }
 
+  &.via-connect__mobile {
+    bottom: 0 !important;
+    right: 0 !important;
+    max-width: 100vw !important;
+    min-width: 100vw !important;
+    min-height: 100vh;
+    border-radius: 0 !important;
+
+    .via-connect__form-body {
+      min-height: calc(100vh - 81px) !important;
+      height: calc(100vh - 81px) !important;
+    }
+
+    .via-connect__close_svg {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
   }
 
   .via-connect__footer {
@@ -165,8 +215,9 @@
         margin-inline-start: 20px !important;
         border-radius: 15px 15px 0 15px !important;
         background: $blue1 !important;
-        transform-origin: bottom right  !important;
+        transform-origin: bottom right !important;
         transform: scale(1) !important;
+
         &.via-connect__animate {
           animation: growBox .5s ease forwards;
         }
@@ -176,8 +227,9 @@
         margin-inline-end: 20px !important;
         border-radius: 15px 15px 15px 0 !important;
         background: $blue2 !important;
-        transform-origin: bottom left  !important;
+        transform-origin: bottom left !important;
         transform: scale(1) !important;
+
         &.via-connect__animate {
           animation: growBox .5s ease forwards;
         }

@@ -48,12 +48,14 @@ export class Form {
         this.chatContainer = DDM.create(
             'div', [new Attribute('id', ContainerId.CHAT_MAIN)], CHAT_TEMPLATE,
         );
+        this.chatContainer.classList.toggle('via-connect__mobile', this.isMobile);
         this.buttonContainer = DDM.create(
             'div', [new Attribute('id', ContainerId.CHAT_BUTTON_MAIN)], CHAT_BUTTON_TEMPLATE,
         );
         this.greetingContainer = DDM.create(
             'div', [new Attribute('id', ContainerId.CHAT_GREETING_MAIN)], WELCOME_MESSAGE_TEMPLATE,
         );
+        this.greetingContainer.classList.toggle('via-connect__mobile', this.isMobile);
 
         DDM.append(body, this.buttonContainer);
         DDM.append(body, this.chatContainer);
@@ -65,19 +67,21 @@ export class Form {
             this.toggleGreetingView(true);
         });
 
-        this.greetingContainer.addEventListener('click', () => {
-            this.toggleGreetingView(true);
-        });
-
         document.addEventListener('click', (e: any) => {
             if (
+                this.isChatVisible &&
                 !DDM.get(ContainerId.CHAT_MAIN).contains(e.target) &&
                 !DDM.get(ContainerId.CHAT_BUTTON_MAIN).contains(e.target) &&
-                this.isChatVisible
+                !DDM.get(ContainerId.CHAT_GREETING_MAIN).contains(e.target)
             ) {
                 this.isChatVisible = false;
                 this.toggleChatView();
             }
+        });
+        const mobileCloseBtn = DDM.get(ContainerId.CHAT_MAIN_FORM_HEADER_CLOSE);
+        mobileCloseBtn.addEventListener('click', () => {
+            this.isChatVisible = false;
+            this.toggleChatView();
         });
 
         this.setChatView();
@@ -94,6 +98,12 @@ export class Form {
         if (!this.greetingContainer) return;
         const img = DDM.get(ContainerId.CHAT_GREETING_IMAGE);
         const body = DDM.get(ContainerId.CHAT_GREETING_BODY);
+        const close = DDM.get(ContainerId.CHAT_GREETING_CLOSE);
+
+        close.addEventListener('click', (e: Event) => {
+            e.stopPropagation();
+            this.toggleGreetingView(true);
+        });
 
         DDM.setAttribute(img, [new Attribute('src', this.config.welcomeMessage.icon ?
             `${CONFIG.s3Url}/${this.config.welcomeMessage.icon}` :
@@ -148,6 +158,10 @@ export class Form {
                 this.setChatView();
             })
             .catch(e => {
+                const input = DDM.get(ContainerId.FORM_INPUT_PHONE);
+                if (input) {
+                    DDM.setAttribute(input, [new Attribute('style', 'color: #ff0000 !important')]);
+                }
                 this.toggleLoader(false);
                 console.error(e);
             });
@@ -246,8 +260,13 @@ export class Form {
         setTimeout(() => {
             if (this.isGreetingShouldShow) {
                 this.greetingContainer.classList.toggle('via-connect__visible', true);
+                this.greetingContainer.addEventListener('click', () => {
+                    this.isChatVisible = true;
+                    this.toggleChatView();
+                    this.toggleGreetingView(true);
+                });
             }
-        }, 10000);
+        }, 1000);
     }
 
     setButtonStyle(): void {
@@ -289,5 +308,9 @@ export class Form {
         animatedElements.forEach(el => {
             el.classList.toggle('via-connect__animate', this.isChatVisible);
         });
+    }
+
+    get isMobile(): boolean {
+        return window.innerWidth <= 700 ? true : false;
     }
 }
