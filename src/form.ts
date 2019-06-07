@@ -264,7 +264,7 @@ export class Form {
                     this.toggleGreetingView(true);
                 });
             }
-        }, 1000);
+        }, 10000);
     }
 
     setButtonStyle(): void {
