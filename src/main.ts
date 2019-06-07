@@ -3,6 +3,7 @@ import 'classlist-polyfill';
 import * as ES6Promise from 'es6-promise';
 import { Form } from './form';
 import { Http } from './http';
+import { Logger } from './logger';
 
 export class MainClass {
     constructor() {
@@ -11,6 +12,8 @@ export class MainClass {
     }
 
     init(): void {
+        Logger.log('init');
+        Logger.log(MainClass.isServer);
         if (MainClass.isServer) {
             return;
         }
@@ -20,6 +23,7 @@ export class MainClass {
         }
         Http.getConfig()
             .then(settings => {
+                Logger.log(settings);
                 new Form(settings).createForm();
             })
             .catch(e => console.error(e));

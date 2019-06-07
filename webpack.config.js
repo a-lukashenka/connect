@@ -70,6 +70,7 @@ module.exports = [
                 CONFIG: JSON.stringify({
                     apiUrl: env.API_URL,
                     s3Url: env.S3_URL,
+                    prod: env.PROD,
                 }),
             }),
             new UglifyJsPlugin({
