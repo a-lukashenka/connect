@@ -187,7 +187,7 @@ export class Form {
         const phone = DDM.get(ContainerId.CHAT_MAIN_FORM_CUSTOMER_PHONE);
         const message = DDM.get(ContainerId.CHAT_MAIN_FORM_CUSTOMER_MESSAGE);
 
-        const phoneText = DDM.createTextNode(this.formData.phone);
+        const phoneText = DDM.createTextNode(this.formData.fName);
         const messageText = DDM.createTextNode(this.formData.message);
 
         DDM.append(phone, phoneText);
@@ -233,6 +233,7 @@ export class Form {
     toggleChatView(): void {
         setTimeout(() => {
             this.chatContainer.classList.toggle('via-connect__visible', this.isChatVisible);
+            this.toggleButton(this.isChatVisible);
         }, 0);
         this.animateMessages();
     }
@@ -242,9 +243,22 @@ export class Form {
         loader.classList.toggle('via-connect__loading', state);
     }
 
+    toggleButton(state: boolean): void {
+        const button = DDM.get(ContainerId.CHAT_BUTTON_MAIN_BODY);
+
+        DDM.setAttribute(button, [
+            new Attribute('style',
+                `background: ${state ? '#e73e51' : this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor} !important;
+                color: ${state ? '#e73e51' : this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor} !important`),
+        ]);
+        button.classList.toggle('via-connect__icon-container--opened', state);
+    }
+
     toggleGreetingView(close?: boolean): void {
-        if (!this.isGreetingShouldShow || !this.config.welcomeMessage.frequency ||
-            (localStorage.getItem(StorageItem.GreetingMessage) &&
+        if (!this.isGreetingShouldShow || (!this.config.welcomeMessage.frequency &&
+            localStorage.getItem(StorageItem.GreetingMessage)) ||
+            (this.config.welcomeMessage.frequency != -1 &&
+                localStorage.getItem(StorageItem.GreetingMessage) &&
                 dayJs().subtract(this.config.welcomeMessage.frequency, 'day')
                     .diff(dayJs(localStorage.getItem(StorageItem.GreetingMessage)), 'millisecond') < 0)) {
             return;
@@ -252,7 +266,8 @@ export class Form {
         if (close && this.isGreetingShouldShow) {
             this.isGreetingShouldShow = false;
             this.greetingContainer.classList.toggle('via-connect__visible', false);
-            localStorage.setItem(StorageItem.GreetingMessage, `${new Date()}`);
+            localStorage.setItem(StorageItem.GreetingMessage, `${new Date()}
+`);
             return;
         }
         setTimeout(() => {
@@ -273,12 +288,22 @@ export class Form {
 
         DDM.setAttribute(button, [
             new Attribute('style',
-                `background: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor} !important;
-                color: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor} !important`),
+                `
+    background: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor}
+!
+    important;
+    color: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor}
+!
+    important
+`),
         ]);
         DDM.setAttribute(icon, [
             new Attribute('style',
-                `fill: ${this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor} !important`),
+                `
+    fill: ${this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor}
+!
+    important
+`),
         ]);
     }
 
@@ -287,8 +312,14 @@ export class Form {
 
         DDM.setAttribute(button, [
             new Attribute('style',
-                `background: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor} !important;
-                color: ${this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor} !important`),
+                `
+    background: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor}
+!
+    important;
+    color: ${this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor}
+!
+    important
+`),
         ]);
     }
 
@@ -296,8 +327,14 @@ export class Form {
         const header = DDM.get(ContainerId.CHAT_MAIN_FORM_HEADER);
         DDM.setAttribute(header, [
             new Attribute('style',
-                `background: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor} !important;
-                color: ${this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor} !important`),
+                `
+    background: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor}
+!
+    important;
+    color: ${this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor}
+!
+    important
+`),
         ]);
     }
 

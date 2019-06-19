@@ -57,7 +57,7 @@
   textarea {
     background: none !important;
     color: #828385 !important;
-    padding: 8px 8px 6px 5px !important;
+    padding: 8px 0 6px 0 !important;
     display: block !important;
     width: 100% !important;
     border: none !important;
@@ -113,7 +113,7 @@
     font-weight: normal !important;
     position: absolute !important;
     pointer-events: none !important;
-    left: 5px !important;
+    left: 0 !important;
     top: 13px !important;
     transition: $trans-time ease all !important;
   }

@@ -17,6 +17,7 @@ export enum ContainerId {
     CHAT_MAIN_SPEECH = 'via-connect__initial-message',
     CHAT_BUTTON_MAIN = 'via-connect-btn-container',
     CHAT_BUTTON_MAIN_BODY = 'via-connect-btn',
+    CHAT_BUTTON_MAIN_ICON_CONTAINER = 'via-connect-btn__icon_container',
     CHAT_BUTTON_MAIN_ICON = 'via-connect-btn__svg',
     CHAT_GREETING_MAIN = 'via-connect-greeting-container',
     CHAT_GREETING_IMAGE = 'via-connect__greeting-img',
