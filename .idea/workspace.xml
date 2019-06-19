@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d87426e1-86d2-4231-8544-770b4acdde18" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/_form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_form.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/_material.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_material.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/submit-form-html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/submit-form-html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/chat-button-html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/chat-button-html.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -78,7 +75,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/templates/chat-button-html.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="280">
@@ -99,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/styles/_material.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="60" column="14" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
+            <state relative-caret-position="148">
+              <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -221,12 +218,12 @@
         <option value="$PROJECT_DIR$/src/main.ts" />
         <option value="$PROJECT_DIR$/src/models/enums/container-id.ts" />
         <option value="$PROJECT_DIR$/src/styles/_chat-button.scss" />
-        <option value="$PROJECT_DIR$/src/templates/chat-button-html.ts" />
         <option value="$PROJECT_DIR$/src/form.ts" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/styles/_form.scss" />
         <option value="$PROJECT_DIR$/src/templates/submit-form-html.ts" />
         <option value="$PROJECT_DIR$/src/styles/_material.scss" />
+        <option value="$PROJECT_DIR$/src/templates/chat-button-html.ts" />
       </list>
     </option>
   </component>
@@ -422,12 +419,12 @@
       <workItem from="1559802479057" duration="21176000" />
       <workItem from="1559889442653" duration="2196000" />
       <workItem from="1560760456247" duration="648000" />
-      <workItem from="1560926822031" duration="12180000" />
+      <workItem from="1560926822031" duration="12379000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183377000" />
+    <option name="totallyTimeSpent" value="183576000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1136" extended-state="6" />
@@ -705,16 +702,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/chat-button-html.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="n#style#0;n#svg#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/form.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="508">
@@ -739,13 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/_form.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="87" column="34" selection-start-line="87" selection-start-column="29" selection-end-line="87" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/submit-form-html.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -755,8 +735,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/styles/_material.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="60" column="14" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
+        <state relative-caret-position="148">
+          <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/_form.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="87" column="34" selection-start-line="87" selection-start-column="29" selection-end-line="87" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/chat-button-html.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="n#style#0;n#svg#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
