@@ -20,6 +20,16 @@
   opacity: 0 !important;
   z-index: 1000 !important;
 
+  ::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: lighten(#BDBDBD, 7%) !important;
+    border-radius: 10em !important;
+  }
+
   .via-connect__no-flex {
     flex: none !important;
   }
@@ -35,7 +45,7 @@
     flex-direction: column;
     padding: 15px 15px 0 !important;
     background: $gray3 !important;
-    max-height: 500px !important;
+    max-height: 400px !important;
     overflow: auto !important;
     position: relative !important;
 

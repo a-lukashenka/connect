@@ -13,7 +13,7 @@ export const SUBMIT_FORM_TEMPLATE = '<form id="via-connect__form" class="via-con
     '        <input id="via-connect__input_phone" type="number" name="phone" required="required" autocomplete="off" novalidate><span class="via-connect__highlight"></span><span class="bar"></span>' +
     '        <label>Mobile phone</label>' +
     '      </div>' +
-    '      <div class="via-connect__group">' +
+    '      <div class="via-connect__group via-connect__group_area">' +
     '        <textarea name="message" rows="1" required="required" autocomplete="off" novalidate></textarea>' +
     '        <span class="highlight"></span><span class="bar"></span>' +
     '        <label>Message</label>' +

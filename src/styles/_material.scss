@@ -45,7 +45,22 @@
     &:not(:last-of-type) {
       margin-bottom: 15px !important;
     }
+
+    &_area {
+      label {
+        top: 10px !important;
+      }
+    }
   }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    height: 31px !important;
+  }
+
 
   // INPUTS // ============================== //
   textarea {
@@ -90,6 +105,24 @@
 
     &:focus ~ .bar:before {
       width: 100% !important;
+    }
+  }
+
+  textarea {
+    &:focus {
+      outline: none !important;
+    }
+
+    &:valid ~ label {
+      top: -12px !important;
+    }
+
+    &:placeholder-shown ~ label {
+      top: 10px !important;
+    }
+
+    &:focus ~ label {
+      top: -12px !important;
     }
   }
 
