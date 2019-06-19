@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d87426e1-86d2-4231-8544-770b4acdde18" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/templates/chat-button-html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/chat-button-html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_material.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/_material.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/submit-form-html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/submit-form-html.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -66,16 +67,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/templates/submit-form-html.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="1" column="131" selection-start-line="1" selection-start-column="131" selection-end-line="1" selection-end-column="131" />
+            <state relative-caret-position="300">
+              <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/chat-button-html.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="280">
@@ -99,8 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/styles/_material.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
+            <state relative-caret-position="268">
+              <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -125,7 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>remo</find>
       <find>loca</find>
       <find>;</find>
       <find>!important  !important;</find>
@@ -155,6 +155,7 @@
       <find>max-height: 500px</find>
       <find>top: 13px !important;</find>
       <find>group</find>
+      <find>area</find>
     </findStrings>
     <replaceStrings>
       <replace>via-connect</replace>
@@ -221,9 +222,9 @@
         <option value="$PROJECT_DIR$/src/form.ts" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/styles/_form.scss" />
-        <option value="$PROJECT_DIR$/src/templates/submit-form-html.ts" />
-        <option value="$PROJECT_DIR$/src/styles/_material.scss" />
         <option value="$PROJECT_DIR$/src/templates/chat-button-html.ts" />
+        <option value="$PROJECT_DIR$/src/styles/_material.scss" />
+        <option value="$PROJECT_DIR$/src/templates/submit-form-html.ts" />
       </list>
     </option>
   </component>
@@ -419,12 +420,12 @@
       <workItem from="1559802479057" duration="21176000" />
       <workItem from="1559889442653" duration="2196000" />
       <workItem from="1560760456247" duration="648000" />
-      <workItem from="1560926822031" duration="12379000" />
+      <workItem from="1560926822031" duration="12623000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183576000" />
+    <option name="totallyTimeSpent" value="183820000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1136" extended-state="6" />
@@ -726,20 +727,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/submit-form-html.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="131" selection-start-line="1" selection-start-column="131" selection-end-line="1" selection-end-column="131" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/_material.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/styles/_form.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -754,6 +741,20 @@
           <folding>
             <element signature="n#style#0;n#svg#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/_material.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/submit-form-html.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
         </state>
       </provider>
     </entry>
