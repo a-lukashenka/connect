@@ -82,7 +82,6 @@ export class Form {
             this.toggleChatView();
         });
 
-        this.setChatView();
         this.setTitles();
         this.setGreetingMessage();
         this.toggleChatView();
@@ -114,9 +113,13 @@ export class Form {
 
     setChatView(): void {
         this.formContainer = DDM.get(ContainerId.CHAT_MAIN_FORM_BODY);
+        if (!this.isChatVisible) {
+            return;
+        }
 
         if (this.isNewRequest) {
             this.clearSuccessContainer();
+            this.clearFormContainer();
             this.setFormContainer();
         } else {
             this.clearFormContainer();
@@ -135,6 +138,10 @@ export class Form {
         this.setSubmitButtonStyle();
 
         const form = DDM.get(ContainerId.CHAT_MAIN_FORM);
+        if (form) {
+            // @ts-ignore
+            form.reset();
+        }
         form.onsubmit = (e: Event) => {
             e.preventDefault();
             this.formData = {
@@ -157,9 +164,7 @@ export class Form {
             })
             .catch(e => {
                 const input = DDM.get(ContainerId.FORM_INPUT_PHONE);
-                if (input) {
-                    DDM.setAttribute(input, [new Attribute('style', 'color: #ff0000 !important')]);
-                }
+                DDM.setAttribute(input, [new Attribute('style', 'color: #ff0000 !important')]);
                 this.toggleLoader(false);
                 console.error(e);
             });
@@ -172,7 +177,6 @@ export class Form {
     }
 
     setSuccessContainer(): void {
-        if (!this.formContainer) return;
         DDM.setHtml(this.formContainer, SUCCESS_FORM_TEMPLATE);
         this.setSuccessMessage();
     }
@@ -184,13 +188,13 @@ export class Form {
     }
 
     setCustomerMessage(): void {
-        const phone = DDM.get(ContainerId.CHAT_MAIN_FORM_CUSTOMER_PHONE);
+        const name = DDM.get(ContainerId.CHAT_MAIN_FORM_CUSTOMER_NAME);
         const message = DDM.get(ContainerId.CHAT_MAIN_FORM_CUSTOMER_MESSAGE);
 
-        const phoneText = DDM.createTextNode(this.formData.fName);
+        const cName = DDM.createTextNode(`${this.formData.fName} ${this.formData.lName || ''}`);
         const messageText = DDM.createTextNode(this.formData.message);
 
-        DDM.append(phone, phoneText);
+        DDM.append(name, cName);
         DDM.append(message, messageText);
     }
 
@@ -233,9 +237,13 @@ export class Form {
     toggleChatView(): void {
         setTimeout(() => {
             this.chatContainer.classList.toggle('via-connect__visible', this.isChatVisible);
+            if (this.isChatVisible) {
+                this.isNewRequest = true;
+            }
+            this.setChatView();
             this.toggleButton(this.isChatVisible);
+            this.animateMessages();
         }, 0);
-        this.animateMessages();
     }
 
     toggleLoader(state: boolean): void {
@@ -288,22 +296,12 @@ export class Form {
 
         DDM.setAttribute(button, [
             new Attribute('style',
-                `
-    background: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor}
-!
-    important;
-    color: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor}
-!
-    important
-`),
+                `background: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor}!important;
+                      color: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor}!important`),
         ]);
         DDM.setAttribute(icon, [
             new Attribute('style',
-                `
-    fill: ${this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor}
-!
-    important
-`),
+                `fill: ${this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor}!important`),
         ]);
     }
 
@@ -312,14 +310,8 @@ export class Form {
 
         DDM.setAttribute(button, [
             new Attribute('style',
-                `
-    background: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor}
-!
-    important;
-    color: ${this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor}
-!
-    important
-`),
+                `background: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor}!important;
+                      color: ${this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor}!important`),
         ]);
     }
 
@@ -327,14 +319,8 @@ export class Form {
         const header = DDM.get(ContainerId.CHAT_MAIN_FORM_HEADER);
         DDM.setAttribute(header, [
             new Attribute('style',
-                `
-    background: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor}
-!
-    important;
-    color: ${this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor}
-!
-    important
-`),
+                `background: ${this.config.theme.primaryColor || BASE_SETTINGS.theme.primaryColor}!important;
+                      color: ${this.config.theme.fontColor || BASE_SETTINGS.theme.fontColor}!important`),
         ]);
     }
 

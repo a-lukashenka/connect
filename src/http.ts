@@ -12,7 +12,7 @@ export class Http {
         })
             .then(Http.handleErrors)
             .then(response => {
-                return response.json();
+                return (<Response>response).json();
             })
             .then((config: IViaConnectSettings) => {
                 if (!config || !config.token) {
@@ -36,10 +36,13 @@ export class Http {
             },
             method: 'POST',
         })
-            .then(Http.handleErrors);
+            .then(Http.handleErrors)
+            .then(() => {
+                return;
+            });
     }
 
-    static handleErrors(response: Response): any {
+    static handleErrors(response: Response): Error | Response {
         if (!response.ok) {
             throw Error(response.statusText);
         }

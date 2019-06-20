@@ -7,7 +7,7 @@ export enum ContainerId {
     CHAT_MAIN_FORM_LOADING = 'via-connect__form-body_loading',
     CHAT_MAIN_FORM_BODY = 'via-connect__form-body',
     CHAT_MAIN_FORM_AGREEMENT = 'via-connect__agreement',
-    CHAT_MAIN_FORM_CUSTOMER_PHONE = 'via-connect__customer-phone',
+    CHAT_MAIN_FORM_CUSTOMER_NAME = 'via-connect__customer-name',
     CHAT_MAIN_FORM_CUSTOMER_MESSAGE = 'via-connect__customer-message',
     CHAT_MAIN_FORM_SUCCESS = 'via-connect_success',
     CHAT_MAIN_FORM_SUCCESS_PHONE = 'via-connect__success_phone',

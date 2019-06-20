@@ -19,10 +19,12 @@ export class DDM {
     }
 
     static remove(element: HTMLElement): void {
+        if (!element) return;
         element.parentNode.removeChild(element);
     }
 
     static setAttribute(element: HTMLElement, attr: Attribute[]): void {
+        if (!element) return;
         attr.forEach(attr => {
             element.setAttribute(attr.name, attr.value);
         });
@@ -33,6 +35,7 @@ export class DDM {
     }
 
     static setHtml(element: HTMLElement, html: string): void {
+        if (!element) return;
         element.innerHTML += html;
     }
 

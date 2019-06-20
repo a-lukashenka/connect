@@ -2,7 +2,7 @@
 export const SUBMIT_FORM_TEMPLATE = '<form id="via-connect__form" class="via-connect__message-wrapper via-connect__form cleanslate">' +
     '    <div id="via-connect__animate" class="via-connect__message via-connect__right via-connect__clear via-connect__no-flex">' +
     '      <div class="via-connect__group">' +
-    '        <input type="text" name="fName" required="required" autocomplete="new-password" novalidate><span class="via-connect__highlight"></span><span class="bar"></span>' +
+    '        <input type="text" name="fName" placeholder=" " required="required" autocomplete="new-password" novalidate><span class="via-connect__highlight"></span><span class="bar"></span>' +
     '        <label>First name</label>' +
     '      </div>' +
     '      <div class="via-connect__group">' +
@@ -10,11 +10,11 @@ export const SUBMIT_FORM_TEMPLATE = '<form id="via-connect__form" class="via-con
     '        <label>Last name</label>' +
     '      </div>' +
     '      <div class="via-connect__group">' +
-    '        <input id="via-connect__input_phone" type="number" name="phone" required="required" autocomplete="off" novalidate><span class="via-connect__highlight"></span><span class="bar"></span>' +
+    '        <input id="via-connect__input_phone" placeholder=" " pattern="^[\\d\\(\\)\\-+]+$" type="tel" name="phone" required="required" autocomplete="off" novalidate><span class="via-connect__highlight"></span><span class="bar"></span>' +
     '        <label>Mobile phone</label>' +
     '      </div>' +
     '      <div class="via-connect__group">' +
-    '        <textarea name="message" rows="1" required="required" autocomplete="off" novalidate></textarea>' +
+    '        <textarea name="message" placeholder=" " rows="1" required="required" autocomplete="off" novalidate></textarea>' +
     '        <span class="highlight"></span><span class="bar"></span>' +
     '        <label>Message</label>' +
     '      </div>' +

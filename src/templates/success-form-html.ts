@@ -2,7 +2,7 @@
 export const SUCCESS_FORM_TEMPLATE = '<div id="via-connect_success" class="via-connect__success cleanslate">' +
     '  <div class="via-connect__message-wrapper">' +
     '      <div id="via-connect__animate" class="via-connect__message via-connect__right">' +
-    '        <h5 id="via-connect__customer-phone"></h5>' +
+    '        <h5 id="via-connect__customer-name"></h5>' +
     '        <p id="via-connect__customer-message"></p>' +
     '      </div>' +
     '<span class="via-connect__status">Received</span>' +

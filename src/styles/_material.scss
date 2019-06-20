@@ -86,20 +86,25 @@
       color: $main-color !important;
     }
 
+    &:focus ~ .bar:before {
+      width: 100% !important;
+    }
+
     &:placeholder-shown ~ label {
       top: 13px !important;
       color: $muted-color !important;
     }
-
-    &:focus ~ label {
+    &:not(:placeholder-shown) ~ label {
       top: -8px !important;
       left: 0px !important;
       font-size: 12px !important;
       color: $main-color !important;
     }
-
-    &:focus ~ .bar:before {
-      width: 100% !important;
+    &:focus ~ label {
+      top: -8px !important;
+      left: 0px !important;
+      font-size: 12px !important;
+      color: $main-color !important;
     }
   }
 
